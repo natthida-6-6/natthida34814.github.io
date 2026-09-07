@@ -4,13 +4,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Sarabun', sans-serif;
+    font-family: 'Sarabun', sans-serif !important;
 }
 
 body {
-    /* พื้นหลังโทนขาวอมชมพูอ่อน */
-    background: linear-gradient(135deg, #fff0f5 0%, #ffe4e1 50%, #fce4ec 100%);
-    color: #4a4a4a;
+    background-color: #fff0f5 !important;
+    background: linear-gradient(135deg, #fff0f5 0%, #ffe4e1 50%, #fce4ec 100%) !important;
+    color: #4a4a4a !important;
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -18,15 +18,14 @@ body {
     padding: 20px 15px;
 }
 
-/* คอนเทนเนอร์หลัก จัดกึ่งกลางหน้าจอ */
 .container {
-    background: rgba(255, 255, 255, 0.95);
-    border: 2px solid #f8bbd0;
-    border-radius: 24px;
+    background: #ffffff !important;
+    border: 2px solid #f8bbd0 !important;
+    border-radius: 24px !important;
     padding: 35px 25px;
     width: 100%;
     max-width: 480px;
-    box-shadow: 0 10px 30px rgba(244, 143, 177, 0.25);
+    box-shadow: 0 10px 30px rgba(244, 143, 177, 0.3) !important;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -34,13 +33,12 @@ body {
     margin: auto;
 }
 
-/* กรอบรูปโปรไฟล์ */
 .profile-card {
-    border: 3px solid #f48fb1;
+    border: 3px solid #f48fb1 !important;
     border-radius: 18px;
     padding: 6px;
     margin-bottom: 20px;
-    background: #ffffff;
+    background: #ffffff !important;
     box-shadow: 0 6px 16px rgba(244, 143, 177, 0.2);
     width: 100%;
     max-width: 280px;
@@ -48,18 +46,16 @@ body {
 
 .profile-img {
     width: 100%;
-    height: auto;
-    max-height: 350px;
+    height: 320px;
     object-fit: cover;
     border-radius: 12px;
     display: block;
 }
 
-/* หัวข้อ */
 .main-title {
     font-size: 2.5rem;
     font-weight: 700;
-    color: #ec407a;
+    color: #ec407a !important;
     letter-spacing: 2px;
     margin-bottom: 12px;
 }
@@ -67,13 +63,12 @@ body {
 .page-title {
     font-size: 2rem;
     font-weight: 700;
-    color: #ec407a;
+    color: #ec407a !important;
     margin-bottom: 20px;
     text-align: center;
     width: 100%;
 }
 
-/* ข้อความบรรยาย */
 .description {
     width: 100%;
     margin-bottom: 10px;
@@ -82,16 +77,15 @@ body {
 .description p {
     font-size: 1.1rem;
     line-height: 1.6;
-    color: #555555;
+    color: #555555 !important;
     margin-bottom: 6px;
 }
 
 .description strong {
-    color: #d81b60;
+    color: #d81b60 !important;
     font-size: 1.25rem;
 }
 
-/* ปุ่มกด */
 .btn-group {
     display: flex;
     gap: 12px;
@@ -116,27 +110,26 @@ body {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, #f48fb1 0%, #ec407a 100%);
-    color: #ffffff;
-    box-shadow: 0 4px 14px rgba(236, 64, 122, 0.3);
+    background: linear-gradient(135deg, #f48fb1 0%, #ec407a 100%) !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 14px rgba(236, 64, 122, 0.3) !important;
 }
 
 .btn-primary:hover {
-    background: linear-gradient(135deg, #ec407a 0%, #d81b60 100%);
+    background: linear-gradient(135deg, #ec407a 0%, #d81b60 100%) !important;
     transform: translateY(-2px);
 }
 
 .btn-secondary {
-    background: #ffffff;
-    color: #ad1457;
-    border: 2px solid #f8bbd0;
+    background: #ffffff !important;
+    color: #ad1457 !important;
+    border: 2px solid #f8bbd0 !important;
 }
 
 .btn-secondary:hover {
-    background: #fce4ec;
+    background: #fce4ec !important;
 }
 
-/* หน้า About Me */
 .info-list {
     display: flex;
     flex-direction: column;
@@ -145,8 +138,8 @@ body {
 }
 
 .info-item {
-    background: #fff5f8;
-    border: 1px solid #f8bbd0;
+    background: #fff5f8 !important;
+    border: 1px solid #f8bbd0 !important;
     border-radius: 12px;
     padding: 12px 16px;
     display: flex;
@@ -156,15 +149,14 @@ body {
 }
 
 .info-label {
-    color: #c2185b;
+    color: #c2185b !important;
     font-weight: 600;
 }
 
 .info-value {
-    color: #333333;
+    color: #333333 !important;
 }
 
-/* หน้า Portfolio (ผลงาน) */
 .portfolio-header {
     display: flex;
     flex-direction: column;
@@ -174,20 +166,29 @@ body {
     width: 100%;
 }
 
+/* กรอบรูปเกียรติบัตรขนาดเท่ากันทุกใบ */
 .portfolio-card {
-    background: #ffffff;
-    border: 2px solid #f8bbd0;
+    background: #ffffff !important;
+    border: 2px solid #f8bbd0 !important;
     border-radius: 14px;
     overflow: hidden;
     margin-bottom: 16px;
-    padding: 8px;
-    box-shadow: 0 4px 12px rgba(244, 143, 177, 0.15);
+    padding: 10px;
+    box-shadow: 0 4px 12px rgba(244, 143, 177, 0.15) !important;
     width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+/* รูปภาพปรับขนาดพอดีกรอบ ไม่โดนตัดขอบ */
 .portfolio-img {
-    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
     height: auto;
-    display: block;
+    object-fit: contain;
     border-radius: 8px;
+    display: block;
 }
