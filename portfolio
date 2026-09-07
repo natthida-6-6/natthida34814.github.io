@@ -1,1 +1,331 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - นางสาวณัฐธิดา ถกลพัฒนกุล</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Sarabun', sans-serif;
+        }
+
+        body {
+            background: #000d1a url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1000&q=80') center/cover fixed;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* คอนเทนเนอร์หลัก */
+        .container {
+            background: rgba(10, 25, 47, 0.85);
+            border: 1px solid rgba(0, 195, 255, 0.3);
+            border-radius: 20px;
+            padding: 30px 20px;
+            width: 100%;
+            max-width: 420px;
+            box-shadow: 0 0 20px rgba(0, 195, 255, 0.2);
+            text-align: center;
+            backdrop-filter: blur(8px);
+        }
+
+        /* การจัดการแสดงผลแต่ละหน้า */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* รูปโปรไฟล์หน้าแรก */
+        .profile-card {
+            border: 1px solid rgba(0, 195, 255, 0.4);
+            border-radius: 15px;
+            padding: 10px;
+            margin-bottom: 25px;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .profile-img {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        /* หัวข้อ */
+        .main-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #00c3ff;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px rgba(0, 195, 255, 0.5);
+        }
+
+        .page-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #00c3ff;
+            margin-bottom: 25px;
+        }
+
+        .description p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #d1d5db;
+            margin-bottom: 8px;
+        }
+
+        /* ปุ่มกด */
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: #00c3ff;
+            color: #0a192f;
+            box-shadow: 0 0 10px rgba(0, 195, 255, 0.4);
+        }
+
+        .btn-primary:hover {
+            background: #33d1ff;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: #d1d5db;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* หน้า About Me */
+        .info-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .info-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 12px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.95rem;
+        }
+
+        .info-label {
+            color: #00c3ff;
+            font-weight: 600;
+        }
+
+        .info-value {
+            color: #ffffff;
+        }
+
+        /* หน้า Portfolio */
+        .portfolio-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .portfolio-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 195, 255, 0.2);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .portfolio-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .portfolio-content {
+            padding: 15px;
+        }
+
+        .portfolio-title {
+            color: #00c3ff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .portfolio-desc {
+            color: #9ca3af;
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- หน้าที่ 1: Welcome -->
+        <div id="home" class="page active">
+            <div class="profile-card">
+                <!-- https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap -->
+                <img src="profile.jpg" alt="Profile" class="profile-img">
+            </div>
+
+            <h1 class="main-title">PORTFOLIO</h1>
+
+            <div class="description">
+                <p>ยินดีต้อนรับสู่แฟ้มสะสมผลงานของดิฉัน</p>
+                <p><strong>นางสาวณัฐธิดา ถกลพัฒนกุล</strong></p>
+                <p>มัธยมศึกษาปีที่ 6 โรงเรียนบ้านบึง "อุตสาหกรรมนุเคราะห์"</p>
+            </div>
+
+            <div class="btn-group">
+                <button class="btn btn-primary" onclick="showPage('about')">เริ่มต้นรู้จักกัน &rarr;</button>
+            </div>
+        </div>
+
+        <!-- หน้าที่ 2: About Me -->
+        <div id="about" class="page">
+            <h1 class="page-title">ABOUT ME</h1>
+
+            <div class="info-list">
+                <div class="info-item">
+                    <span class="info-label">ชื่อ-นามสกุล:</span>
+                    <span class="info-value">นางสาวณัฐธิดา ถกลพัฒนกุล</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">ชื่อเล่น:</span>
+                    <span class="info-value">น้ำมุก</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">อายุ:</span>
+                    <span class="info-value">17 ปี</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">วันเกิด:</span>
+                    <span class="info-value">18 มกราคม 2552</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">เชื้อชาติ / สัญชาติ:</span>
+                    <span class="info-value">ไทย / ไทย</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">ศาสนา:</span>
+                    <span class="info-value">พุทธ</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">เบอร์โทรติดต่อ:</span>
+                    <span class="info-value">0955436280</span>
+                </div>
+            </div>
+
+            <div class="btn-group">
+                <button class="btn btn-secondary" onclick="showPage('home')">&larr; ย้อนกลับ</button>
+                <button class="btn btn-primary" onclick="showPage('portfolio')">เข้าดูผลงาน &rarr;</button>
+            </div>
+        </div>
+
+        <!-- หน้าที่ 3: Portfolio -->
+        <div id="portfolio" class="page">
+            <div class="portfolio-header">
+                <h1 class="page-title" style="margin-bottom:0;">ผลงานของฉัน</h1>
+                <button class="btn btn-secondary" style="padding: 6px 12px; font-size: 0.8rem;" onclick="showPage('home')">&larr; กลับหน้าแรก</button>
+            </div>
+
+            <!-- การ์ดผลงานที่ 1 -->
+            <div class="portfolio-card">
+                <img src="cert1.jpg" alt="เกียรติบัตร 1" class="https://cdn.phototourl.com/free/2026-09-07-af9a4c6b-d6c6-4ab8-ae82-3fc56c8fade4.jpg">
+                <div class="portfolio-content">
+                </div>
+            </div>
+
+            <!-- การ์ดผลงานที่ 2 -->
+            <div class="portfolio-card">
+                <img src="cert2.jpg" alt="เกียรติบัตร 2" class="https://cdn.phototourl.com/free/2026-09-07-f4d7a110-5005-435b-ba6c-645238a46f74.jpg">
+                <div class="portfolio-content">
+                </div>
+            </div>
+
+            <!-- การ์ดผลงานที่ 3 -->
+            <div class="portfolio-card">
+                <img src="cert1.jpg" alt="เกียรติบัตร 1" class="https://cdn.phototourl.com/free/2026-09-07-2d42c361-e3ac-4ad5-8790-3e20fdd152c4.jpg">
+                <div class="portfolio-content">
+                </div>
+            </div>
+
+            <!-- การ์ดผลงานที่ 4 -->
+            <div class="portfolio-card">
+                <img src="cert2.jpg" alt="เกียรติบัตร 2" class="https://cdn.phototourl.com/free/2026-09-07-a3014241-8cf7-4343-856a-a029ed2bd8e1.jpg">
+                <div class="portfolio-content">
+                </div>
+            </div>
+
+            <!-- การ์ดผลงานที่ 5 -->
+            <div class="portfolio-card">
+                <img src="cert2.jpg" alt="เกียรติบัตร 2" class="https://cdn.phototourl.com/member/2026-09-07-a8f7c9a4-17f2-4570-8cff-87993df04a19.jpg">
+                <div class="portfolio-content">
+                </div>
+            </div>
+
+            <div class="btn-group">
+                <button class="btn btn-secondary" onclick="showPage('about')">&larr; ย้อนกลับ</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- JavaScript สลับหน้า -->
+    <script>
+        function showPage(pageId) {
+            // ซ่อนทุกหน้า
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+
+            // แสดงหน้าที่เลือก
+            document.getElementById(pageId).classList.add('active');
+        }
+    </script>
+</body>
+</html>
 
