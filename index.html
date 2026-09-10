@@ -3,28 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Welcome</title>
-    <link rel="stylesheet" href="style.css?v=1">
+    <title>Natthida - Welcome Portfolio</title>
+    <link rel="stylesheet" href="style.css?v=300">
 </head>
 <body>
-    <div class="container">
-        <!-- รูปโปรไฟล์ -->
-        <div class="profile-card">
-            <img src="IMG_0696.jpeg" alt="รูปโปรไฟล์" class="profile-img">
+
+    <!-- แถบเมนูด้านบน กดเปลี่ยนหน้าได้เลย -->
+    <nav class="navbar">
+        <a href="index.html" class="nav-logo">NATTHIDA.</a>
+        <div class="nav-links">
+            <a href="index.html" class="active">หน้าแรก</a>
+            <a href="about.html">ประวัติส่วนตัว</a>
+            <a href="portfolio.html">ผลงาน</a>
         </div>
+    </nav>
 
-        <h1 class="main-title">PORTFOLIO</h1>
+    <div class="main-container">
+        <div class="hero-card">
+            <div class="avatar-box">
+                <img src="IMG_0696.jpeg" alt="Natthida Profile" class="avatar-img">
+            </div>
+            
+            <span class="badge">MY PORTFOLIO</span>
+            <h1 class="hero-name">ณัฐธิดา ถกลพัฒนกุล</h1>
+            <p class="hero-school">โรงเรียนบ้านบึง "อุตสาหกรรมนุเคราะห์"</p>
+            
+            <p class="hero-bio">
+                ยินดีต้อนรับเข้าสู่แฟ้มสะสมผลงานออนไลน์อย่างเป็นทางการ คลิกที่ปุ่มด้านล่างเพื่อทำความรู้จักและรับชมผลงานของฉันได้เลยค่ะ
+            </p>
 
-        <div class="description">
-            <p>ยินดีต้อนรับสู่แฟ้มสะสมผลงานของฉัน</p>
-            <p><strong>นางสาว ณัฐธิดา ถกลพัฒนกุล</strong></p>
-            <p>โรงเรียนบ้านบึง "อุตสาหกรรมนุเคราะห์"</p>
-        </div>
-
-        <!-- ปุ่มกดเปลี่ยนหน้าไป about.html -->
-        <div class="btn-group">
-            <a href="about.html" class="btn btn-primary">เริ่มต้นรู้จักกัน &rarr;</a>
+            <div class="action-buttons">
+                <a href="about.html" class="btn btn-primary">ทำความรู้จักฉัน &rarr;</a>
+                <a href="portfolio.html" class="btn btn-outline">ดูผลงานเกียรติบัตร</a>
+            </div>
         </div>
     </div>
+
 </body>
 </html>
