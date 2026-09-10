@@ -44,24 +44,24 @@
             letter-spacing: 2px;
         }
 
-        .section-header {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #ff3366;
-            margin: 30px 0 20px 0;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #ffe6ed;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+        .page-subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.2rem;
+            margin-bottom: 30px;
         }
 
+        /* ตารางรูปภาพ 3 คอลัมน์ (บน 3 ล่าง 3) */
         .gallery-grid {
+            display: none;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-bottom: 35px;
+            min-height: 480px;
+        }
+
+        .gallery-grid.active {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 20px;
-            margin-bottom: 25px;
-            min-height: 220px;
         }
 
         .gallery-item {
@@ -89,21 +89,23 @@
             display: block;
         }
 
-        /* ปุ่มสลับหน้าสำหรับกลุ่มพอด */
+        /* ปุ่มสลับหน้า */
         .pagination {
             display: flex;
             justify-content: center;
             gap: 10px;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
         }
 
         .page-btn {
             background: #ffffff;
             border: 2px solid #ff3366;
             color: #ff3366;
-            padding: 8px 18px;
+            padding: 10px 22px;
             border-radius: 30px;
             font-weight: 700;
+            font-size: 1.05rem;
             cursor: pointer;
             transition: all 0.3s ease;
         }
@@ -117,7 +119,7 @@
         .btn-group {
             display: flex;
             justify-content: center;
-            margin-top: 30px;
+            margin-top: 20px;
         }
 
         .btn-back {
@@ -175,18 +177,14 @@
             cursor: pointer;
         }
 
-        .pod-page {
-            display: none;
-        }
-
-        .pod-page.active {
-            display: grid;
-        }
-
         @media (max-width: 768px) {
             .full-wrapper { padding: 30px 15px; }
             .page-title { font-size: 2.5rem; }
-            .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -194,68 +192,62 @@
 
     <div class="full-wrapper">
         <h1 class="page-title">MY PORTFOLIO</h1>
+        <p class="page-subtitle">รวมผลงานและเกียรติบัตรทั้งหมด (หน้าละ 6 ใบ)</p>
 
-        <!-- โซนเกียรติบัตร (หน้าละ 6 ใบ) -->
-        <div class="section-header">
-            <span>📜 เกียรติบัตร (6 ใบ)</span>
-        </div>
-        <div class="gallery-grid">
-            <div class="gallery-item" onclick="openModal('บัตร 1.jpg')"><img src="บัตร 1.jpg" alt="เกียรติบัตร 1"></div>
-            <div class="gallery-item" onclick="openModal('บัตร 2.jpg')"><img src="บัตร 2.jpg" alt="เกียรติบัตร 2"></div>
-            <div class="gallery-item" onclick="openModal('บัตร 4.jpg')"><img src="บัตร 4.jpg" alt="เกียรติบัตร 4"></div>
-            <div class="gallery-item" onclick="openModal('บัตร 5.jpg')"><img src="บัตร 5.jpg" alt="เกียรติบัตร 5"></div>
-            <div class="gallery-item" onclick="openModal('บัตร 6.jpg')"><img src="บัตร 6.jpg" alt="เกียรติบัตร 6"></div>
-            <!-- หากมีเกียรติบัตรใบที่ 3 เพิ่มเติมสามารถใส่ชื่อไฟล์ตรงนี้ได้ครับ -->
-            <div class="gallery-item" onclick="openModal('บัตร 3.jpg')"><img src="บัตร 3.jpg" alt="เกียรติบัตร 3" onerror="this.parentElement.style.display='none'"></div>
-        </div>
-
-        <!-- โซนผลงาน (20 ใบ แบ่งหน้าละ 5 ใบ) -->
-        <div class="section-header">
-            <span>🎨 ผลงานและกิจกรรม (20 ใบ)</span>
-        </div>
-
-        <!-- หน้าที่ 1 (พอด 1 - 5) -->
-        <div class="gallery-grid pod-page active" id="pod-page-1">
+        <!-- หน้าที่ 1 (ใบที่ 1 - 6) -->
+        <div class="gallery-grid active" id="page-1">
+            <div class="gallery-item" onclick="openModal('บัตร 1.jpg')"><img src="บัตร 1.jpg" alt="บัตร 1"></div>
+            <div class="gallery-item" onclick="openModal('บัตร 2.jpg')"><img src="บัตร 2.jpg" alt="บัตร 2"></div>
+            <div class="gallery-item" onclick="openModal('บัตร 4.jpg')"><img src="บัตร 4.jpg" alt="บัตร 4"></div>
+            <div class="gallery-item" onclick="openModal('บัตร 5.jpg')"><img src="บัตร 5.jpg" alt="บัตร 5"></div>
+            <div class="gallery-item" onclick="openModal('บัตร 6.jpg')"><img src="บัตร 6.jpg" alt="บัตร 6"></div>
             <div class="gallery-item" onclick="openModal('พอด 1.jpg')"><img src="พอด 1.jpg" alt="พอด 1"></div>
+        </div>
+
+        <!-- หน้าที่ 2 (ใบที่ 7 - 12) -->
+        <div class="gallery-grid" id="page-2">
             <div class="gallery-item" onclick="openModal('พอด 2.jpg')"><img src="พอด 2.jpg" alt="พอด 2"></div>
             <div class="gallery-item" onclick="openModal('พอด 3.jpg')"><img src="พอด 3.jpg" alt="พอด 3"></div>
             <div class="gallery-item" onclick="openModal('พอด 4.jpg')"><img src="พอด 4.jpg" alt="พอด 4"></div>
             <div class="gallery-item" onclick="openModal('พอด 5.jpg')"><img src="พอด 5.jpg" alt="พอด 5"></div>
-        </div>
-
-        <!-- หน้าที่ 2 (พอด 6 - 10) -->
-        <div class="gallery-grid pod-page" id="pod-page-2">
             <div class="gallery-item" onclick="openModal('พอด 6.jpg')"><img src="พอด 6.jpg" alt="พอด 6"></div>
             <div class="gallery-item" onclick="openModal('พอด 7.jpg')"><img src="พอด 7.jpg" alt="พอด 7"></div>
+        </div>
+
+        <!-- หน้าที่ 3 (ใบที่ 13 - 18) -->
+        <div class="gallery-grid" id="page-3">
             <div class="gallery-item" onclick="openModal('พอด 8.jpg')"><img src="พอด 8.jpg" alt="พอด 8"></div>
             <div class="gallery-item" onclick="openModal('พอด 9.jpg')"><img src="พอด 9.jpg" alt="พอด 9"></div>
             <div class="gallery-item" onclick="openModal('พอด 10.jpg')"><img src="พอด 10.jpg" alt="พอด 10"></div>
-        </div>
-
-        <!-- หน้าที่ 3 (พอด 11 - 15) -->
-        <div class="gallery-grid pod-page" id="pod-page-3">
             <div class="gallery-item" onclick="openModal('พอด 11.jpg')"><img src="พอด 11.jpg" alt="พอด 11"></div>
             <div class="gallery-item" onclick="openModal('พอด 12.jpg')"><img src="พอด 12.jpg" alt="พอด 12"></div>
             <div class="gallery-item" onclick="openModal('พอด 13.jpg')"><img src="พอด 13.jpg" alt="พอด 13"></div>
-            <div class="gallery-item" onclick="openModal('พอด 14.jpg')"><img src="พอด 14.jpg" alt="พอด 14"></div>
-            <div class="gallery-item" onclick="openModal('พอด 15.jpg')"><img src="พอด 15.jpg" alt="พอด 15"></div>
         </div>
 
-        <!-- หน้าที่ 4 (พอด 16 - 20) -->
-        <div class="gallery-grid pod-page" id="pod-page-4">
+        <!-- หน้าที่ 4 (ใบที่ 19 - 24) -->
+        <div class="gallery-grid" id="page-4">
+            <div class="gallery-item" onclick="openModal('พอด 14.jpg')"><img src="พอด 14.jpg" alt="พอด 14"></div>
+            <div class="gallery-item" onclick="openModal('พอด 15.jpg')"><img src="พอด 15.jpg" alt="พอด 15"></div>
             <div class="gallery-item" onclick="openModal('พอด 16.jpg')"><img src="พอด 16.jpg" alt="พอด 16"></div>
             <div class="gallery-item" onclick="openModal('พอด 17.jpg')"><img src="พอด 17.jpg" alt="พอด 17"></div>
             <div class="gallery-item" onclick="openModal('พอด 18.jpg')"><img src="พอด 18.jpg" alt="พอด 18"></div>
             <div class="gallery-item" onclick="openModal('พอด 19.jpg')"><img src="พอด 19.jpg" alt="พอด 19"></div>
-            <div class="gallery-item" onclick="openModal('พอด 20.jpg')"><img src="พอด 20.jpg" alt="พอด 20"></div>
         </div>
 
-        <!-- ปุ่มกดเปลี่ยนหน้าพอด -->
+        <!-- หน้าที่ 5 (ใบที่ 25 - 26) -->
+        <div class="gallery-grid" id="page-5">
+            <div class="gallery-item" onclick="openModal('พอด 20.jpg')"><img src="พอด 20.jpg" alt="พอด 20"></div>
+            <!-- ภาพเพิ่มเติมถ้ามี -->
+            <div class="gallery-item" onclick="openModal('บัตร 3.jpg')"><img src="บัตร 3.jpg" alt="บัตร 3" onerror="this.parentElement.style.display='none'"></div>
+        </div>
+
+        <!-- ปุ่มสลับหน้า -->
         <div class="pagination">
-            <button class="page-btn active" onclick="changePodPage(1)">หน้า 1 (1-5)</button>
-            <button class="page-btn" onclick="changePodPage(2)">หน้า 2 (6-10)</button>
-            <button class="page-btn" onclick="changePodPage(3)">หน้า 3 (11-15)</button>
-            <button class="page-btn" onclick="changePodPage(4)">หน้า 4 (16-20)</button>
+            <button class="page-btn active" onclick="changePage(1, event)">หน้า 1</button>
+            <button class="page-btn" onclick="changePage(2, event)">หน้า 2</button>
+            <button class="page-btn" onclick="changePage(3, event)">หน้า 3</button>
+            <button class="page-btn" onclick="changePage(4, event)">หน้า 4</button>
+            <button class="page-btn" onclick="changePage(5, event)">หน้า 5</button>
         </div>
 
         <div class="btn-group">
@@ -270,20 +262,20 @@
     </div>
 
     <script>
-        function changePodPage(pageNum) {
-            // ซ่อนทุกหน้าของพอด
-            document.querySelectorAll('.pod-page').forEach(page => {
-                page.classList.remove('active');
+        function changePage(pageNum, evt) {
+            // ซ่อนทุกหน้า
+            document.querySelectorAll('.gallery-grid').forEach(grid => {
+                grid.classList.remove('active');
             });
-            // เอาสถานะ active ออกจากปุ่มกด
+            // เอาไฮไลต์ปุ่มเดิมออก
             document.querySelectorAll('.page-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
 
             // แสดงหน้าที่เลือก
-            document.getElementById('pod-page-' + pageNum).classList.add('active');
-            // ไฮไลต์ปุ่มที่เลือก
-            event.target.classList.add('active');
+            document.getElementById('page-' + pageNum).classList.add('active');
+            // ไฮไลต์ปุ่มปัจจุบัน
+            evt.target.classList.add('active');
         }
 
         function openModal(src) {
