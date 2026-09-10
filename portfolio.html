@@ -51,7 +51,6 @@
             margin-bottom: 30px;
         }
 
-        /* ตารางรูปภาพ 3 คอลัมน์ (บน 3 ล่าง 3) */
         .gallery-grid {
             display: none;
             grid-template-columns: repeat(3, 1fr);
@@ -89,7 +88,6 @@
             display: block;
         }
 
-        /* ปุ่มสลับหน้า */
         .pagination {
             display: flex;
             justify-content: center;
@@ -143,7 +141,6 @@
             box-shadow: 0 15px 30px rgba(255, 51, 102, 0.4);
         }
 
-        /* Modal ซูมดูรูปใหญ่ */
         .modal {
             display: none;
             position: fixed;
@@ -192,11 +189,11 @@
 
     <div class="full-wrapper">
         <h1 class="page-title">MY PORTFOLIO</h1>
-        <p class="page-subtitle">รวมผลงานและเกียรติบัตรทั้งหมด (หน้าละ 6 ใบ)</p>
+        <p class="page-subtitle">รวมผลงานและเกียรติบัตรทั้งหมด</p>
 
-        <!-- หน้าที่ 1 (ใบที่ 1 - 6) -->
+        <!-- หน้าที่ 1 (รูปที่ 1 เปลี่ยนเป็น แก้ๆ.jpg) -->
         <div class="gallery-grid active" id="page-1">
-            <div class="gallery-item" onclick="openModal('บัตร 1.jpg')"><img src="บัตร 1.jpg" alt="บัตร 1"></div>
+            <div class="gallery-item" onclick="openModal('แก้ๆ.jpg')"><img src="แก้ๆ.jpg" alt="รูปที่ 1"></div>
             <div class="gallery-item" onclick="openModal('บัตร 2.jpg')"><img src="บัตร 2.jpg" alt="บัตร 2"></div>
             <div class="gallery-item" onclick="openModal('บัตร 4.jpg')"><img src="บัตร 4.jpg" alt="บัตร 4"></div>
             <div class="gallery-item" onclick="openModal('บัตร 5.jpg')"><img src="บัตร 5.jpg" alt="บัตร 5"></div>
@@ -204,7 +201,7 @@
             <div class="gallery-item" onclick="openModal('พอด 1.jpg')"><img src="พอด 1.jpg" alt="พอด 1"></div>
         </div>
 
-        <!-- หน้าที่ 2 (ใบที่ 7 - 12) -->
+        <!-- หน้าที่ 2 -->
         <div class="gallery-grid" id="page-2">
             <div class="gallery-item" onclick="openModal('พอด 2.jpg')"><img src="พอด 2.jpg" alt="พอด 2"></div>
             <div class="gallery-item" onclick="openModal('พอด 3.jpg')"><img src="พอด 3.jpg" alt="พอด 3"></div>
@@ -214,40 +211,27 @@
             <div class="gallery-item" onclick="openModal('พอด 7.jpg')"><img src="พอด 7.jpg" alt="พอด 7"></div>
         </div>
 
-        <!-- หน้าที่ 3 (ใบที่ 13 - 18) -->
+        <!-- หน้าที่ 3 (ตัดรูปที่ 3, 4, 5, 6 ออก เหลือรูปที่ 1 และ 2) -->
         <div class="gallery-grid" id="page-3">
             <div class="gallery-item" onclick="openModal('พอด 8.jpg')"><img src="พอด 8.jpg" alt="พอด 8"></div>
             <div class="gallery-item" onclick="openModal('พอด 9.jpg')"><img src="พอด 9.jpg" alt="พอด 9"></div>
-            <div class="gallery-item" onclick="openModal('พอด 10.jpg')"><img src="พอด 10.jpg" alt="พอด 10"></div>
-            <div class="gallery-item" onclick="openModal('พอด 11.jpg')"><img src="พอด 11.jpg" alt="พอด 11"></div>
-            <div class="gallery-item" onclick="openModal('พอด 12.jpg')"><img src="พอด 12.jpg" alt="พอด 12"></div>
-            <div class="gallery-item" onclick="openModal('พอด 13.jpg')"><img src="พอด 13.jpg" alt="พอด 13"></div>
         </div>
 
-        <!-- หน้าที่ 4 (ใบที่ 19 - 24) -->
+        <!-- หน้าที่ 4 (ตัดรูปที่ 1 และ 2 ออก นำรูปที่เหลือมาแสดง) -->
         <div class="gallery-grid" id="page-4">
-            <div class="gallery-item" onclick="openModal('พอด 14.jpg')"><img src="พอด 14.jpg" alt="พอด 14"></div>
-            <div class="gallery-item" onclick="openModal('พอด 15.jpg')"><img src="พอด 15.jpg" alt="พอด 15"></div>
             <div class="gallery-item" onclick="openModal('พอด 16.jpg')"><img src="พอด 16.jpg" alt="พอด 16"></div>
             <div class="gallery-item" onclick="openModal('พอด 17.jpg')"><img src="พอด 17.jpg" alt="พอด 17"></div>
             <div class="gallery-item" onclick="openModal('พอด 18.jpg')"><img src="พอด 18.jpg" alt="พอด 18"></div>
             <div class="gallery-item" onclick="openModal('พอด 19.jpg')"><img src="พอด 19.jpg" alt="พอด 19"></div>
-        </div>
-
-        <!-- หน้าที่ 5 (ใบที่ 25 - 26) -->
-        <div class="gallery-grid" id="page-5">
             <div class="gallery-item" onclick="openModal('พอด 20.jpg')"><img src="พอด 20.jpg" alt="พอด 20"></div>
-            <!-- ภาพเพิ่มเติมถ้ามี -->
-            <div class="gallery-item" onclick="openModal('บัตร 3.jpg')"><img src="บัตร 3.jpg" alt="บัตร 3" onerror="this.parentElement.style.display='none'"></div>
         </div>
 
-        <!-- ปุ่มสลับหน้า -->
+        <!-- ปุ่มสลับหน้า (ปรับเหลือ 4 หน้า) -->
         <div class="pagination">
             <button class="page-btn active" onclick="changePage(1, event)">หน้า 1</button>
             <button class="page-btn" onclick="changePage(2, event)">หน้า 2</button>
             <button class="page-btn" onclick="changePage(3, event)">หน้า 3</button>
             <button class="page-btn" onclick="changePage(4, event)">หน้า 4</button>
-            <button class="page-btn" onclick="changePage(5, event)">หน้า 5</button>
         </div>
 
         <div class="btn-group">
@@ -263,18 +247,14 @@
 
     <script>
         function changePage(pageNum, evt) {
-            // ซ่อนทุกหน้า
             document.querySelectorAll('.gallery-grid').forEach(grid => {
                 grid.classList.remove('active');
             });
-            // เอาไฮไลต์ปุ่มเดิมออก
             document.querySelectorAll('.page-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
 
-            // แสดงหน้าที่เลือก
             document.getElementById('page-' + pageNum).classList.add('active');
-            // ไฮไลต์ปุ่มปัจจุบัน
             evt.target.classList.add('active');
         }
 
