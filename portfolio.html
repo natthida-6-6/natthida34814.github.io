@@ -3,66 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio - ผลงานของฉัน</title>
-    <link rel="stylesheet" href="style.css?v=300">
+    <title>My Works - ผลงานของฉัน</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Sarabun', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ffe6ed 0%, #ffb6c1 50%, #f78da7 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 15px;
+        }
+
+        .container {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 30px 20px;
+            width: 100%;
+            max-width: 480px;
+            box-shadow: 0 15px 35px rgba(216, 27, 96, 0.2);
+            border: 2px solid #ffccd5;
+        }
+
+        .header-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px dashed #ffccd5;
+        }
+
+        .page-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #d81b60;
+        }
+
+        .home-btn {
+            text-decoration: none;
+            color: #ad1457;
+            font-size: 0.85rem;
+            font-weight: 600;
+            background: #fff0f3;
+            padding: 6px 14px;
+            border-radius: 15px;
+            border: 1px solid #ffccd5;
+        }
+
+        .gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .card {
+            background: #ffffff;
+            border: 2px solid #ffccd5;
+            border-radius: 18px;
+            padding: 8px;
+            height: 230px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+        }
+
+        .card img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+        }
+
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            padding: 10px 24px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            background: #ffffff;
+            color: #d81b60;
+            border: 2px solid #ff85a2;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #fff0f3;
+        }
+    </style>
 </head>
 <body>
 
-    <nav class="navbar">
-        <a href="index.html" class="nav-logo">NATTHIDA.</a>
-        <div class="nav-links">
-            <a href="index.html">หน้าแรก</a>
-            <a href="about.html">ประวัติส่วนตัว</a>
-            <a href="portfolio.html" class="active">ผลงาน</a>
+    <div class="container">
+        <div class="header-box">
+            <h1 class="page-title">ผลงานของฉัน</h1>
+            <a href="index.html" class="home-btn">&larr; กลับหน้าแรก</a>
         </div>
-    </nav>
 
-    <div class="main-container">
-        <div class="page-card">
-            <h2 class="section-title">MY WORKS</h2>
-            <p class="section-subtitle">ผลงานและเกียรติบัตรที่ภาคภูมิใจ</p>
+        <div class="gallery">
+            <div class="card"><img src="IMG_0690.jpeg" alt="ผลงาน 1"></div>
+            <div class="card"><img src="IMG_0694.jpeg" alt="ผลงาน 2"></div>
+            <div class="card"><img src="IMG_0691.jpeg" alt="ผลงาน 3"></div>
+            <div class="card"><img src="IMG_0692.jpeg" alt="ผลงาน 4"></div>
+            <div class="card"><img src="IMG_0693.jpeg" alt="ผลงาน 5"></div>
+        </div>
 
-            <div class="gallery-grid">
-                <!-- ใบที่ 1 -->
-                <div class="gallery-item">
-                    <div class="img-wrapper">
-                        <img src="IMG_0690.jpeg" alt="เกียรติบัตร 1">
-                    </div>
-                </div>
-
-                <!-- ใบที่ 2 -->
-                <div class="gallery-item">
-                    <div class="img-wrapper">
-                        <img src="IMG_0694.jpeg" alt="เกียรติบัตร 2">
-                    </div>
-                </div>
-
-                <!-- ใบที่ 3 -->
-                <div class="gallery-item">
-                    <div class="img-wrapper">
-                        <img src="IMG_0691.jpeg" alt="เกียรติบัตร 3">
-                    </div>
-                </div>
-
-                <!-- ใบที่ 4 -->
-                <div class="gallery-item">
-                    <div class="img-wrapper">
-                        <img src="IMG_0692.jpeg" alt="เกียรติบัตร 4">
-                    </div>
-                </div>
-
-                <!-- ใบที่ 5 -->
-                <div class="gallery-item">
-                    <div class="img-wrapper">
-                        <img src="IMG_0693.jpeg" alt="เกียรติบัตร 5">
-                    </div>
-                </div>
-            </div>
-
-            <div class="action-buttons">
-                <a href="about.html" class="btn btn-outline">&larr; ย้อนกลับ</a>
-                <a href="index.html" class="btn btn-primary">กลับหน้าหลัก</a>
-            </div>
+        <div class="btn-group">
+            <a href="about.html" class="btn">&larr; ย้อนกลับไปหน้าประวัติ</a>
         </div>
     </div>
 
