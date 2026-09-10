@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Welcome</title>
+    <title>Portfolio - หน้าแรก</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700;800&family=Sarabun:wght@400;600;700&display=swap" rel="stylesheet">
@@ -22,148 +22,222 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 30px 20px;
+            padding: 40px 20px;
             overflow-x: hidden;
+        }
+
+        .main-card {
+            width: 100%;
+            max-width: 950px;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(15px);
+            border-radius: 40px;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+            padding: 60px 40px;
+            text-align: center;
             position: relative;
         }
 
-        body::before {
+        /* Container รูปภาพใหญ่เด่น */
+        .profile-container {
+            position: relative;
+            width: 280px;
+            height: 280px;
+            margin: 0 auto 35px auto;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        /* แสงออร่าด้านหลังรูป */
+        .profile-container::before {
             content: '';
             position: absolute;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 70%);
-            top: -100px;
-            left: -100px;
+            top: -15px;
+            left: -15px;
+            right: -15px;
+            bottom: -15px;
+            background: linear-gradient(45deg, #ff3366, #ff85a2, #764ba2, #ff3366);
+            background-size: 400% 400%;
             border-radius: 50%;
+            z-index: 1;
+            filter: blur(20px);
+            opacity: 0.85;
+            animation: glowRotate 8s linear infinite;
         }
 
-        .full-wrapper {
-            width: 100%;
-            max-width: 1200px;
-            background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-radius: 40px;
-            border: 2px solid rgba(255, 255, 255, 0.6);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
-            padding: 60px 40px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            color: #ffffff;
-        }
-
-        .avatar-container {
+        /* กรอบวงกลมครอบรูป */
+        .profile-box {
             position: relative;
-            margin-bottom: 25px;
-        }
-
-        .avatar-glow {
-            width: 240px;
-            height: 240px;
+            width: 100%;
+            height: 100%;
             border-radius: 50%;
-            padding: 8px;
-            background: linear-gradient(135deg, #ffffff, #ff758c, #00f2fe);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3), 0 0 30px rgba(255, 255, 255, 0.8);
-            animation: spin-glow 6s linear infinite alternate;
+            padding: 8px; /* ความหนาของขอบ */
+            background: linear-gradient(135deg, #ffffff, #ffccd5, #764ba2);
+            z-index: 2;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(255, 51, 102, 0.3);
         }
 
-        @keyframes spin-glow {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.05); }
-        }
-
-        .avatar-img {
+        /* รูปภาพข้างใน */
+        .profile-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             border-radius: 50%;
-            border: 5px solid #ffffff;
+            display: block;
+            transition: all 0.5s ease;
         }
 
-        .badge {
-            background: rgba(255, 255, 255, 0.9);
+        /* เอฟเฟคลำแสงวิ่งผ่านรูป */
+        .profile-box::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 50%;
+            height: 200%;
+            background: linear-gradient(
+                to right,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.6) 100%
+            );
+            transform: rotate(30deg);
+            transition: all 0.8s ease;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Hover Effect สวมบทบาทเมื่อเอาเมาส์ชี้ */
+        .profile-container:hover {
+            animation-play-state: paused;
+        }
+
+        .profile-container:hover .profile-box {
+            transform: scale(1.08) rotate(3deg);
+            box-shadow: 0 25px 50px rgba(255, 51, 102, 0.5);
+        }
+
+        .profile-container:hover .profile-box::after {
+            left: 130%;
+            opacity: 1;
+        }
+
+        .profile-container:hover .profile-img {
+            transform: scale(1.05);
+        }
+
+        /* ข้อความและปุ่ม */
+        .greeting-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, #ffe6ed, #fff0f5);
             color: #ff3366;
             font-size: 1.1rem;
+            font-weight: 700;
+            padding: 8px 25px;
+            border-radius: 30px;
+            border: 2px solid #ffccd5;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .main-title {
+            font-size: 3.2rem;
             font-weight: 800;
-            padding: 8px 30px;
-            border-radius: 50px;
-            letter-spacing: 3px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-            margin-bottom: 20px;
-            display: inline-block;
-        }
-
-        .hero-title {
-            font-size: 4rem;
-            font-weight: 800;
-            text-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            background: linear-gradient(135deg, #ff3366, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             margin-bottom: 10px;
-            letter-spacing: 2px;
-            line-height: 1.1;
+            letter-spacing: 1px;
         }
 
-        .hero-name {
-            font-size: 2.2rem;
-            font-weight: 600;
-            color: #ffffff;
-            margin-bottom: 10px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
-        }
-
-        .hero-school {
+        .subtitle {
             font-size: 1.4rem;
-            color: #ffe6ed;
-            font-weight: 400;
+            color: #4a4a4a;
+            font-weight: 600;
             margin-bottom: 40px;
         }
 
-        .btn-action {
+        .btn-start {
             display: inline-block;
             text-decoration: none;
-            background: #ffffff;
-            color: #ff3366;
-            font-size: 1.4rem;
-            font-weight: 800;
-            padding: 18px 50px;
+            font-size: 1.35rem;
+            font-weight: 700;
+            padding: 18px 55px;
             border-radius: 50px;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.25);
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .btn-action:hover {
-            transform: translateY(-5px) scale(1.05);
-            background: #ff3366;
+            background: linear-gradient(135deg, #ff3366, #e91e63);
             color: #ffffff;
-            box-shadow: 0 20px 40px rgba(255, 51, 102, 0.5);
+            box-shadow: 0 12px 30px rgba(233, 30, 99, 0.35);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid #ffffff;
         }
 
-        @media (max-width: 768px) {
-            .hero-title { font-size: 2.8rem; }
-            .hero-name { font-size: 1.6rem; }
-            .avatar-glow { width: 180px; height: 180px; }
-            .btn-action { width: 100%; font-size: 1.2rem; }
+        .btn-start:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 20px 40px rgba(233, 30, 99, 0.5);
+            background: linear-gradient(135deg, #e91e63, #ff3366);
+        }
+
+        /* Keyframes แอนิเมชัน */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-18px);
+            }
+        }
+
+        @keyframes glowRotate {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .profile-container {
+                width: 220px;
+                height: 220px;
+            }
+            .main-title {
+                font-size: 2.3rem;
+            }
+            .subtitle {
+                font-size: 1.15rem;
+            }
+            .main-card {
+                padding: 40px 20px;
+            }
+            .btn-start {
+                padding: 15px 40px;
+                font-size: 1.15rem;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="full-wrapper">
-        <div class="avatar-container">
-            <div class="avatar-glow">
-                <!-- อัปเดตชื่อไฟล์รูปตรงนี้แล้วครับ -->
-                <img src="มุกค่ะอิอิ.jpg" alt="รูปโปรไฟล์" class="avatar-img">
+    <div class="main-card">
+        <!-- รูปโปรไฟล์เด่นใหญ่ + เอฟเฟคแน่นๆ -->
+        <div class="profile-container">
+            <div class="profile-box">
+                <!-- อย่าลืมเปลี่ยนชื่อไฟล์รูปใน src ด้านล่างให้ตรงกับชื่อไฟล์รูปโปรไฟล์จริงของคุณนะครับ -->
+                <img src="รูป 1.jpg" alt="Profile Image" class="profile-img">
             </div>
         </div>
 
-        <span class="badge">OFFICIAL PORTFOLIO</span>
-        <h1 class="hero-title">WELCOME TO MY WORLD</h1>
-        <p class="hero-name">นางสาว ณัฐธิดา ถกลพัฒนกุล</p>
-        <p class="hero-school">โรงเรียนบ้านบึง "อุตสาหกรรมนุเคราะห์"</p>
+        <span class="greeting-tag">✨ WELCOME TO MY PORTFOLIO ✨</span>
+        <h1 class="main-title">ณัฐธิดา ถกลพัฒนกุล</h1>
+        <p class="subtitle">โรงเรียนบ้านบึง "อุตสาหกรรมนุเคราะห์"</p>
 
-        <a href="about.html" class="btn-action">เริ่มต้นรู้จักกัน &rarr;</a>
+        <a href="about.html" class="btn-start">เข้าสู่เว็บไซต์ &rarr;</a>
     </div>
 
 </body>
