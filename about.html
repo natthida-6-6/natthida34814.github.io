@@ -3,51 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me - ณัฐธิดา ถกลพัฒนกุล</title>
-    <link rel="stylesheet" href="style.css?v=300">
+    <title>About Me - ประวัติส่วนตัว</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Sarabun', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ffe6ed 0%, #ffb6c1 50%, #f78da7 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 35px 25px;
+            width: 100%;
+            max-width: 450px;
+            box-shadow: 0 15px 35px rgba(216, 27, 96, 0.2);
+            border: 2px solid #ffccd5;
+        }
+
+        .page-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #d81b60;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .info-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .info-item {
+            background: #fff0f3;
+            border: 1px solid #ffccd5;
+            border-radius: 16px;
+            padding: 14px 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .info-label {
+            color: #c2185b;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .info-value {
+            color: #2c2c2c;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-align: center;
+            flex: 1;
+        }
+
+        .btn-secondary {
+            background: #ffffff;
+            color: #d81b60;
+            border: 2px solid #ff85a2;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #ff4081, #d81b60);
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(216, 27, 96, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+    </style>
 </head>
 <body>
 
-    <nav class="navbar">
-        <a href="index.html" class="nav-logo">NATTHIDA.</a>
-        <div class="nav-links">
-            <a href="index.html">หน้าแรก</a>
-            <a href="about.html" class="active">ประวัติส่วนตัว</a>
-            <a href="portfolio.html">ผลงาน</a>
+    <div class="container">
+        <h1 class="page-title">ABOUT ME</h1>
+
+        <div class="info-list">
+            <div class="info-item">
+                <span class="info-label">ชื่อ-นามสกุล</span>
+                <span class="info-value">ณัฐธิดา ถกลพัฒนกุล</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">โรงเรียน</span>
+                <span class="info-value">บ้านบึง "อุตสาหกรรมนุเคราะห์"</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">เชื้อชาติ / สัญชาติ</span>
+                <span class="info-value">ไทย / ไทย</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">ศาสนา</span>
+                <span class="info-value">พุทธ</span>
+            </div>
         </div>
-    </nav>
 
-    <div class="main-container">
-        <div class="page-card">
-            <h2 class="section-title">ABOUT ME</h2>
-            <p class="section-subtitle">ข้อมูลประวัติส่วนตัว</p>
-
-            <div class="info-grid">
-                <div class="info-box">
-                    <span class="info-tag">ชื่อ-นามสกุล</span>
-                    <p class="info-text">นางสาว ณัฐธิดา ถกลพัฒนกุล</p>
-                </div>
-                
-                <div class="info-box">
-                    <span class="info-tag">สถานศึกษา</span>
-                    <p class="info-text">โรงเรียนบ้านบึง "อุตสาหกรรมนุเคราะห์"</p>
-                </div>
-
-                <div class="info-box">
-                    <span class="info-tag">เชื้อชาติ / สัญชาติ</span>
-                    <p class="info-text">ไทย / ไทย</p>
-                </div>
-
-                <div class="info-box">
-                    <span class="info-tag">ศาสนา</span>
-                    <p class="info-text">พุทธ</p>
-                </div>
-            </div>
-
-            <div class="action-buttons">
-                <a href="index.html" class="btn btn-outline">&larr; ย้อนกลับ</a>
-                <a href="portfolio.html" class="btn btn-primary">ไปหน้าผลงาน &rarr;</a>
-            </div>
+        <div class="btn-group">
+            <a href="index.html" class="btn btn-secondary">&larr; ย้อนกลับ</a>
+            <a href="portfolio.html" class="btn btn-primary">เข้าดูผลงาน &rarr;</a>
         </div>
     </div>
 
