@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Welcome</title>
+    <title>About Me - ประวัติส่วนตัว</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700;800&family=Sarabun:wght@400;600;700&display=swap" rel="stylesheet">
@@ -22,148 +22,187 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 30px 20px;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        body::before {
-            content: '';
-            position: absolute;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 70%);
-            top: -100px;
-            left: -100px;
-            border-radius: 50%;
+            padding: 40px 20px;
         }
 
         .full-wrapper {
             width: 100%;
             max-width: 1200px;
-            background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.95);
             border-radius: 40px;
-            border: 2px solid rgba(255, 255, 255, 0.6);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
-            padding: 60px 40px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            border: 2px solid #ffffff;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+            padding: 50px 60px;
+        }
+
+        .page-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ff3366, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             text-align: center;
-            color: #ffffff;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
         }
 
-        .avatar-container {
-            position: relative;
-            margin-bottom: 25px;
+        /* ส่วนแสดงรูปโปรไฟล์ */
+        .profile-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 35px;
         }
 
-        .avatar-glow {
-            width: 240px;
-            height: 240px;
+        .profile-glow {
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
-            padding: 8px;
-            background: linear-gradient(135deg, #ffffff, #ff758c, #00f2fe);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3), 0 0 30px rgba(255, 255, 255, 0.8);
-            animation: spin-glow 6s linear infinite alternate;
+            padding: 6px;
+            background: linear-gradient(135deg, #ff3366, #764ba2, #00f2fe);
+            box-shadow: 0 10px 25px rgba(255, 51, 102, 0.3);
         }
 
-        @keyframes spin-glow {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.05); }
-        }
-
-        .avatar-img {
+        .profile-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             border-radius: 50%;
-            border: 5px solid #ffffff;
+            border: 4px solid #ffffff;
         }
 
-        .badge {
-            background: rgba(255, 255, 255, 0.9);
-            color: #ff3366;
-            font-size: 1.1rem;
-            font-weight: 800;
-            padding: 8px 30px;
-            border-radius: 50px;
-            letter-spacing: 3px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-            margin-bottom: 20px;
-            display: inline-block;
-        }
-
-        .hero-title {
-            font-size: 4rem;
-            font-weight: 800;
-            text-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            margin-bottom: 10px;
-            letter-spacing: 2px;
-            line-height: 1.1;
-        }
-
-        .hero-name {
-            font-size: 2.2rem;
-            font-weight: 600;
-            color: #ffffff;
-            margin-bottom: 10px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
-        }
-
-        .hero-school {
-            font-size: 1.4rem;
-            color: #ffe6ed;
-            font-weight: 400;
+        .grid-info {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
             margin-bottom: 40px;
         }
 
-        .btn-action {
+        .card-info {
+            background: linear-gradient(135deg, #fff0f5 0%, #ffffff 100%);
+            border: 2px solid #ffccd5;
+            border-radius: 25px;
+            padding: 25px 30px;
+            box-shadow: 0 10px 25px rgba(255, 51, 102, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .card-info:hover {
+            transform: translateY(-8px);
+            border-color: #ff3366;
+            box-shadow: 0 15px 35px rgba(255, 51, 102, 0.2);
+        }
+
+        .card-info.full-width {
+            grid-column: span 2;
+            background: linear-gradient(135deg, #ffe6ed 0%, #ffffff 100%);
+            border-color: #ff85a2;
+        }
+
+        .label {
+            font-size: 1.1rem;
+            color: #ff3366;
+            font-weight: 700;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .value {
+            font-size: 1.4rem;
+            color: #2c2c2c;
+            font-weight: 600;
+            line-height: 1.5;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .btn {
             display: inline-block;
             text-decoration: none;
+            font-size: 1.25rem;
+            font-weight: 700;
+            padding: 16px 45px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            text-align: center;
+            flex: 1;
+            max-width: 300px;
+        }
+
+        .btn-back {
             background: #ffffff;
             color: #ff3366;
-            font-size: 1.4rem;
-            font-weight: 800;
-            padding: 18px 50px;
-            border-radius: 50px;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.25);
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 3px solid #ff3366;
         }
 
-        .btn-action:hover {
-            transform: translateY(-5px) scale(1.05);
-            background: #ff3366;
+        .btn-back:hover {
+            background: #fff0f3;
+            transform: translateY(-3px);
+        }
+
+        .btn-next {
+            background: linear-gradient(135deg, #ff3366, #e91e63);
             color: #ffffff;
-            box-shadow: 0 20px 40px rgba(255, 51, 102, 0.5);
+            box-shadow: 0 10px 25px rgba(233, 30, 99, 0.3);
         }
 
-        @media (max-width: 768px) {
-            .hero-title { font-size: 2.8rem; }
-            .hero-name { font-size: 1.6rem; }
-            .avatar-glow { width: 180px; height: 180px; }
-            .btn-action { width: 100%; font-size: 1.2rem; }
+        .btn-next:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(233, 30, 99, 0.5);
+        }
+
+        @media (max-width: 800px) {
+            .grid-info { grid-template-columns: 1fr; }
+            .card-info.full-width { grid-column: span 1; }
+            .full-wrapper { padding: 35px 20px; }
+            .page-title { font-size: 2.5rem; }
+            .btn-group { flex-direction: column; }
+            .btn { max-width: 100%; }
         }
     </style>
 </head>
 <body>
 
     <div class="full-wrapper">
-        <div class="avatar-container">
-            <div class="avatar-glow">
-                <!-- เปลี่ยนชื่อไฟล์รูปตรงนี้แล้วครับ -->
-                <img src="มุกค่ะ.jpg" alt="รูปโปรไฟล์" class="avatar-img">
+        <h1 class="page-title">ABOUT ME</h1>
+
+        <!-- ใส่รูป มุกค่ะอิอิ.jpg -->
+        <div class="profile-container">
+            <div class="profile-glow">
+                <img src="มุกค่ะอิอิ.jpg" alt="รูปโปรไฟล์" class="profile-img">
             </div>
         </div>
 
-        <span class="badge">OFFICIAL PORTFOLIO</span>
-        <h1 class="hero-title">WELCOME TO MY WORLD</h1>
-        <p class="hero-name">นางสาว ณัฐธิดา ถกลพัฒนกุล</p>
-        <p class="hero-school">โรงเรียนบ้านบึง "อุตสาหกรรมนุเคราะห์"</p>
+        <div class="grid-info">
+            <div class="card-info">
+                <span class="label">👤 ชื่อ-นามสกุล</span>
+                <p class="value">นางสาว ณัฐธิดา ถกลพัฒนกุล</p>
+            </div>
+            <div class="card-info">
+                <span class="label">💖 ชื่อเล่น / อายุ</span>
+                <p class="value">น้ำมุก (อายุ 17 ปี)</p>
+            </div>
+            <div class="card-info">
+                <span class="label">🏫 โรงเรียน</span>
+                <p class="value">บ้านบึง "อุตสาหกรรมนุเคราะห์"</p>
+            </div>
+            <div class="card-info">
+                <span class="label">🎨 งานอดิเรก</span>
+                <p class="value">ฟังเพลง, วาดรูป, เล่นเกม</p>
+            </div>
+            <div class="card-info full-width">
+                <span class="label">🎯 คณะ / สาขาที่สนใจเข้าศึกษาต่อ</span>
+                <p class="value">สาขาเทคโนโลยีสารสนเทศเพื่ออุตสาหกรรมดิจิทัล (ITDI)<br>คณะวิทยาการสารสนเทศ มหาวิทยาลัยบูรพา</p>
+            </div>
+        </div>
 
-        <a href="about.html" class="btn-action">เริ่มต้นรู้จักกัน &rarr;</a>
+        <div class="btn-group">
+            <a href="index.html" class="btn btn-back">&larr; ย้อนกลับหน้าแรก</a>
+            <a href="portfolio.html" class="btn btn-next">เข้าดูผลงาน &rarr;</a>
+        </div>
     </div>
 
 </body>
