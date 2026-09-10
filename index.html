@@ -6,44 +6,78 @@
     <title>Portfolio - หน้าแรก</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&family=Sarabun:wght@400;600;700&display=swap" rel="stylesheet">
     
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Sarabun', sans-serif;
+            font-family: 'Kanit', 'Sarabun', sans-serif;
         }
 
         body {
-            background: linear-gradient(135deg, #ffe6ed 0%, #ffb6c1 50%, #f78da7 100%);
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 40%, #a1c4fd 100%);
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            padding: 40px 20px;
+            position: relative;
+            overflow-x: hidden;
         }
 
+        /* ตกแต่งวงกลมแสงสะท้อนฉากหลัง */
+        body::before, body::after {
+            content: '';
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.35);
+            filter: blur(80px);
+            z-index: 0;
+        }
+        body::before { top: 5%; left: 10%; }
+        body::after { bottom: 5%; right: 10%; }
+
         .container {
-            background: #ffffff;
-            border-radius: 28px;
-            padding: 40px 25px;
+            position: relative;
+            z-index: 1;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(15px);
+            border-radius: 35px;
+            padding: 55px 40px;
             width: 100%;
-            max-width: 420px;
-            box-shadow: 0 15px 35px rgba(216, 27, 96, 0.2);
+            max-width: 850px;
+            box-shadow: 0 20px 50px rgba(216, 27, 96, 0.25),
+                        0 0 0 3px rgba(255, 255, 255, 0.8) inset;
             text-align: center;
             border: 2px solid #ffccd5;
+            transform: scale(1);
+            transition: all 0.3s ease;
+        }
+
+        .profile-wrapper {
+            position: relative;
+            width: 220px;
+            height: 220px;
+            margin: 0 auto 30px auto;
         }
 
         .profile-box {
-            width: 180px;
-            height: 180px;
-            margin: 0 auto 20px auto;
+            width: 100%;
+            height: 100%;
             border-radius: 50%;
-            padding: 5px;
-            background: linear-gradient(135deg, #ff85a2, #e91e63);
-            box-shadow: 0 8px 20px rgba(233, 30, 99, 0.3);
+            padding: 7px;
+            background: linear-gradient(135deg, #ff4081, #ff80ab, #7c4dff);
+            box-shadow: 0 12px 30px rgba(233, 30, 99, 0.4);
+            animation: pulse-glow 3s infinite alternate;
+        }
+
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 12px 30px rgba(233, 30, 99, 0.4); }
+            100% { box-shadow: 0 18px 45px rgba(233, 30, 99, 0.7); }
         }
 
         .profile-img {
@@ -51,65 +85,99 @@
             height: 100%;
             object-fit: cover;
             border-radius: 50%;
+            border: 4px solid #ffffff;
             display: block;
         }
 
-        .title {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: #d81b60;
+        .badge-welcome {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff4081, #e91e63);
+            color: #ffffff;
+            padding: 8px 24px;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
             letter-spacing: 2px;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 6px 15px rgba(233, 30, 99, 0.3);
+            text-transform: uppercase;
+        }
+
+        .title {
+            font-size: 3.2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #d81b60, #8e24aa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 3px;
+            margin-bottom: 12px;
+            line-height: 1.2;
         }
 
         .subtitle {
-            font-size: 1.1rem;
-            color: #333333;
+            font-size: 1.8rem;
+            color: #2c2c2c;
             font-weight: 600;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
         }
 
         .school {
-            font-size: 0.95rem;
-            color: #666666;
-            margin-bottom: 25px;
+            font-size: 1.25rem;
+            color: #555555;
+            margin-bottom: 35px;
+            font-weight: 400;
         }
 
         .btn-group {
             display: flex;
             justify-content: center;
-            gap: 12px;
+            gap: 20px;
+            flex-wrap: wrap;
         }
 
         .btn {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             text-decoration: none;
-            padding: 12px 28px;
-            border-radius: 25px;
-            font-size: 1rem;
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-size: 1.2rem;
             font-weight: 600;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #ff4081, #d81b60);
+            background: linear-gradient(135deg, #ff4081 0%, #d81b60 100%);
             color: #ffffff;
-            box-shadow: 0 5px 15px rgba(216, 27, 96, 0.35);
+            box-shadow: 0 10px 25px rgba(216, 27, 96, 0.4);
         }
 
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(216, 27, 96, 0.45);
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 15px 35px rgba(216, 27, 96, 0.6);
+        }
+
+        @media (max-width: 600px) {
+            .container { padding: 35px 20px; }
+            .title { font-size: 2.3rem; }
+            .subtitle { font-size: 1.4rem; }
+            .school { font-size: 1.05rem; }
+            .profile-wrapper { width: 170px; height: 170px; }
+            .btn { width: 100%; padding: 14px 20px; font-size: 1.1rem; }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <div class="profile-box">
-            <img src="IMG_0696.jpeg" alt="รูปโปรไฟล์" class="profile-img">
+        <div class="profile-wrapper">
+            <div class="profile-box">
+                <img src="IMG_0696.jpeg" alt="รูปโปรไฟล์" class="profile-img">
+            </div>
         </div>
 
+        <span class="badge-welcome">✦ Welcome To My World ✦</span>
         <h1 class="title">PORTFOLIO</h1>
         <p class="subtitle">นางสาว ณัฐธิดา ถกลพัฒนกุล</p>
         <p class="school">โรงเรียนบ้านบึง "อุตสาหกรรมนุเคราะห์"</p>
