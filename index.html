@@ -17,139 +17,122 @@
         }
 
         body {
-            background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 40%, #764ba2 100%);
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 40px 20px;
             overflow-x: hidden;
+            position: relative;
+        }
+
+        /* เอฟเฟกต์อนุภาคระยิบระยับ */
+        .stars {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            background: radial-gradient(2px 2px at 20px 30px, #fff, rgba(0,0,0,0)),
+                        radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)),
+                        radial-gradient(3px 3px at 80px 120px, #fff, rgba(0,0,0,0)),
+                        radial-gradient(2px 2px at 150px 200px, #fff, rgba(0,0,0,0));
+            background-repeat: repeat;
+            background-size: 200px 200px;
+            animation: sparkle 4s linear infinite;
         }
 
         .main-card {
             width: 100%;
             max-width: 950px;
-            background: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(15px);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
             border-radius: 40px;
-            border: 2px solid rgba(255, 255, 255, 0.8);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+            border: 3px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 50px rgba(255, 105, 180, 0.5), inset 0 0 15px rgba(255, 255, 255, 0.6);
             padding: 60px 40px;
             text-align: center;
             position: relative;
+            z-index: 2;
+            animation: cardAppear 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        /* Container รูปภาพใหญ่เด่น */
+        /* รูปภาพเว่อร์วัง */
         .profile-container {
             position: relative;
-            width: 280px;
-            height: 280px;
+            width: 290px;
+            height: 290px;
             margin: 0 auto 35px auto;
             animation: float 4s ease-in-out infinite;
         }
 
-        /* แสงออร่าด้านหลังรูป */
         .profile-container::before {
             content: '';
             position: absolute;
-            top: -15px;
-            left: -15px;
-            right: -15px;
-            bottom: -15px;
-            background: linear-gradient(45deg, #ff3366, #ff85a2, #764ba2, #ff3366);
-            background-size: 400% 400%;
+            top: -20px; left: -20px; right: -20px; bottom: -20px;
+            background: linear-gradient(45deg, #ff007f, #7928ca, #00dfd8, #ff007f);
+            background-size: 300% 300%;
             border-radius: 50%;
             z-index: 1;
-            filter: blur(20px);
-            opacity: 0.85;
-            animation: glowRotate 8s linear infinite;
+            filter: blur(25px);
+            opacity: 0.9;
+            animation: glowRotate 5s linear infinite;
         }
 
-        /* กรอบวงกลมครอบรูป */
         .profile-box {
             position: relative;
-            width: 100%;
-            height: 100%;
+            width: 100%; height: 100%;
             border-radius: 50%;
             padding: 8px;
-            background: linear-gradient(135deg, #ffffff, #ffccd5, #764ba2);
+            background: linear-gradient(135deg, #ffffff, #ff758c, #764ba2);
             z-index: 2;
             cursor: pointer;
             transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             overflow: hidden;
-            box-shadow: 0 15px 35px rgba(255, 51, 102, 0.3);
+            box-shadow: 0 15px 35px rgba(255, 0, 128, 0.4);
         }
 
-        /* รูปภาพข้างใน */
         .profile-img {
-            width: 100%;
-            height: 100%;
+            width: 100%; height: 100%;
             object-fit: cover;
             border-radius: 50%;
-            display: block;
             transition: all 0.5s ease;
         }
 
-        /* เอฟเฟคลำแสงวิ่งผ่านรูป */
-        .profile-box::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -60%;
-            width: 50%;
-            height: 200%;
-            background: linear-gradient(
-                to right,
-                rgba(255, 255, 255, 0) 0%,
-                rgba(255, 255, 255, 0.6) 100%
-            );
-            transform: rotate(30deg);
-            transition: all 0.8s ease;
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        /* Hover Effect สวมบทบาทเมื่อเอาเมาส์ชี้ */
-        .profile-container:hover {
-            animation-play-state: paused;
-        }
-
         .profile-container:hover .profile-box {
-            transform: scale(1.08) rotate(3deg);
-            box-shadow: 0 25px 50px rgba(255, 51, 102, 0.5);
-        }
-
-        .profile-container:hover .profile-box::after {
-            left: 130%;
-            opacity: 1;
+            transform: scale(1.12) rotate(5deg);
+            box-shadow: 0 25px 60px rgba(255, 0, 128, 0.7);
         }
 
         .profile-container:hover .profile-img {
-            transform: scale(1.05);
+            transform: scale(1.08);
         }
 
-        /* ข้อความและปุ่ม */
+        /* ข้อความนีออนและปุ่ม */
         .greeting-tag {
             display: inline-block;
             background: linear-gradient(135deg, #ffe6ed, #fff0f5);
-            color: #ff3366;
+            color: #ff007f;
             font-size: 1.1rem;
-            font-weight: 700;
-            padding: 8px 25px;
+            font-weight: 800;
+            padding: 10px 30px;
             border-radius: 30px;
-            border: 2px solid #ffccd5;
-            margin-bottom: 15px;
-            letter-spacing: 1px;
+            border: 2px solid #ff758c;
+            margin-bottom: 20px;
+            box-shadow: 0 0 15px rgba(255, 0, 128, 0.3);
+            animation: pulse 2s infinite;
         }
 
         .main-title {
-            font-size: 3.2rem;
+            font-size: 3.5rem;
             font-weight: 800;
-            background: linear-gradient(135deg, #ff3366, #764ba2);
+            background: linear-gradient(135deg, #ff007f, #7928ca, #00dfd8);
+            background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            animation: textShine 3s linear infinite;
             margin-bottom: 10px;
-            letter-spacing: 1px;
         }
 
         .subtitle {
@@ -160,72 +143,76 @@
         }
 
         .btn-start {
+            position: relative;
             display: inline-block;
             text-decoration: none;
-            font-size: 1.35rem;
-            font-weight: 700;
-            padding: 18px 55px;
+            font-size: 1.4rem;
+            font-weight: 800;
+            padding: 20px 60px;
             border-radius: 50px;
-            background: linear-gradient(135deg, #ff3366, #e91e63);
+            background: linear-gradient(135deg, #ff007f, #7928ca);
             color: #ffffff;
-            box-shadow: 0 12px 30px rgba(233, 30, 99, 0.35);
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 15px 35px rgba(121, 40, 202, 0.4);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
             border: 2px solid #ffffff;
         }
 
         .btn-start:hover {
-            transform: translateY(-5px) scale(1.03);
-            box-shadow: 0 20px 40px rgba(233, 30, 99, 0.5);
-            background: linear-gradient(135deg, #e91e63, #ff3366);
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 25px 50px rgba(255, 0, 128, 0.6);
+            letter-spacing: 2px;
         }
 
         /* Keyframes แอนิเมชัน */
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes cardAppear {
+            from { opacity: 0; transform: translateY(50px) scale(0.9); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
         @keyframes float {
-            0%, 100% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-18px);
-            }
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
         }
 
         @keyframes glowRotate {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes textShine {
+            to { background-position: 200% center; }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes sparkle {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-200px); }
         }
 
         @media (max-width: 600px) {
-            .profile-container {
-                width: 220px;
-                height: 220px;
-            }
-            .main-title {
-                font-size: 2.3rem;
-            }
-            .subtitle {
-                font-size: 1.15rem;
-            }
-            .main-card {
-                padding: 40px 20px;
-            }
-            .btn-start {
-                padding: 15px 40px;
-                font-size: 1.15rem;
-            }
+            .profile-container { width: 220px; height: 220px; }
+            .main-title { font-size: 2.3rem; }
+            .btn-start { padding: 15px 40px; font-size: 1.15rem; }
         }
     </style>
 </head>
 <body>
 
+    <div class="stars"></div>
+
     <div class="main-card">
-        <!-- รูปโปรไฟล์ของคุณมุก + เอฟเฟคเรืองแสง -->
         <div class="profile-container">
             <div class="profile-box">
                 <img src="มุกค่ะอิอิ.jpg" alt="Profile Image" class="profile-img">
