@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me - ประวัติส่วนตัว</title>
+    <title>About Me - ประวัติส่วนตัว & งานอดิเรก</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700;800&family=Sarabun:wght@400;600;700&display=swap" rel="stylesheet">
@@ -19,20 +19,18 @@
         body {
             background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 40%, #764ba2 100%);
             min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             padding: 40px 20px;
         }
 
         .full-wrapper {
             width: 100%;
             max-width: 1200px;
+            margin: 0 auto;
             background: rgba(255, 255, 255, 0.95);
             border-radius: 40px;
             border: 2px solid #ffffff;
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
-            padding: 60px;
+            padding: 50px 40px;
         }
 
         .page-title {
@@ -42,15 +40,34 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-align: center;
-            margin-bottom: 45px;
+            margin-bottom: 40px;
             letter-spacing: 2px;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #764ba2;
+            text-align: center;
+            margin: 50px 0 25px 0;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #ff3366;
+            margin: 10px auto 0;
+            border-radius: 2px;
         }
 
         .grid-info {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 25px;
-            margin-bottom: 50px;
+            margin-bottom: 20px;
         }
 
         .card-info {
@@ -63,7 +80,7 @@
         }
 
         .card-info:hover {
-            transform: translateY(-8px);
+            transform: translateY(-5px);
             border-color: #ff3366;
             box-shadow: 0 15px 35px rgba(255, 51, 102, 0.2);
         }
@@ -83,16 +100,90 @@
         }
 
         .value {
-            font-size: 1.4rem;
+            font-size: 1.35rem;
             color: #2c2c2c;
             font-weight: 600;
             line-height: 1.5;
         }
 
+        /* ส่วนแสดงผลงานอดิเรก (หน้าละ 4 รูป บน 2 ล่าง 2) */
+        .hobby-section {
+            background: rgba(255, 240, 245, 0.5);
+            border: 2px dashed #ff85a2;
+            border-radius: 30px;
+            padding: 30px 20px;
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+
+        .gallery-grid {
+            display: none;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .gallery-grid.active {
+            display: grid;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            border: 2px solid #ffccd5;
+            aspect-ratio: 4 / 3;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px) scale(1.02);
+            border-color: #ff3366;
+            box-shadow: 0 12px 25px rgba(255, 51, 102, 0.25);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* ปุ่มสลับหน้างานอดิเรก */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .page-btn {
+            background: #ffffff;
+            border: 2px solid #ff3366;
+            color: #ff3366;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .page-btn.active, .page-btn:hover {
+            background: #ff3366;
+            color: #ffffff;
+            box-shadow: 0 5px 15px rgba(255, 51, 102, 0.3);
+        }
+
+        /* ปุ่มนำทางท้ายหน้า */
         .btn-group {
             display: flex;
             gap: 20px;
             justify-content: center;
+            margin-top: 30px;
         }
 
         .btn {
@@ -130,8 +221,42 @@
             box-shadow: 0 15px 35px rgba(233, 30, 99, 0.5);
         }
 
+        /* Modal ซูมภาพ */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.85);
+            backdrop-filter: blur(8px);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-img {
+            max-width: 90%;
+            max-height: 85vh;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(255,255,255,0.2);
+            object-fit: contain;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
         @media (max-width: 800px) {
-            .grid-info { grid-template-columns: 1fr; }
+            .grid-info, .gallery-grid { grid-template-columns: 1fr; }
             .card-info.full-width { grid-column: span 1; }
             .full-wrapper { padding: 35px 20px; }
             .page-title { font-size: 2.5rem; }
@@ -145,6 +270,7 @@
     <div class="full-wrapper">
         <h1 class="page-title">ABOUT ME</h1>
 
+        <!-- ข้อมูลส่วนตัว -->
         <div class="grid-info">
             <div class="card-info">
                 <span class="label">👤 ชื่อ-นามสกุล</span>
@@ -164,23 +290,126 @@
             </div>
             <div class="card-info">
                 <span class="label">🏫 โรงเรียน / สายการเรียน</span>
-                <p class="value">โรงเรียนบ้านบึง "อุตสาหกรรมนุเคราะห์"<br><small style="color: #666; font-size: 1.1rem;">สาขาวิทยาการคอมพิวเตอร์และวิศวกรรมศาสตร์</small></p>
+                <p class="value">โรงเรียนบ้านบึง "อุตสาหกรรมนุเคราะห์"<br><small style="color: #666; font-size: 1.05rem;">สาขาวิทยาการคอมพิวเตอร์และวิศวกรรมศาสตร์</small></p>
             </div>
             <div class="card-info">
                 <span class="label">🎨 งานอดิเรก</span>
                 <p class="value">ฟังเพลง, วาดรูป, เล่นเกม</p>
             </div>
+
+            <!-- ข้อมูลครอบครัว -->
+            <div class="card-info">
+                <span class="label">👨‍👩‍👦 ข้อมูลบิดา</span>
+                <p class="value">
+                    นายกิติชัย ถกลพัฒนกุล (อายุ 50 ปี)<br>
+                    <small style="color: #555; font-size: 1.05rem; font-weight: 400;">
+                        อาชีพ: รับจ้าง (ถ่ายน้ำมันเครื่อง)<br>
+                        เบอร์โทรศัพท์: 089-1365197
+                    </small>
+                </p>
+            </div>
+            <div class="card-info">
+                <span class="label">👩‍👩‍👦 ข้อมูลมารดา</span>
+                <p class="value">
+                    นางสุภาพร ถกลพัฒนกุล (อายุ 48 ปี)<br>
+                    <small style="color: #555; font-size: 1.05rem; font-weight: 400;">
+                        อาชีพ: ค้าขาย<br>
+                        เบอร์โทรศัพท์: 088-2807079
+                    </small>
+                </p>
+            </div>
+
             <div class="card-info full-width">
                 <span class="label">🎯 คณะ / สาขาที่สนใจเข้าศึกษาต่อ</span>
                 <p class="value">สาขาเทคโนโลยีสารสนเทศเพื่ออุตสาหกรรมดิจิทัล (ITDI)<br>คณะวิทยาการสารสนเทศ มหาวิทยาลัยบูรพา</p>
             </div>
+            <div class="card-info full-width">
+                <span class="label">💡 ทำไมถึงอยากเข้าศึกษาในคณะนี้?</span>
+                <p class="value" style="font-weight: 400; font-size: 1.2rem;">
+                    เพราะหนูมีความชื่นชอบในการวาดรูปและเล่นเกมเป็นทุนเดิม จึงเกิดเป็นแรงบันดาลใจที่อยากจะนำตัวละครที่ตัวเองออกแบบและสร้างขึ้นมา ให้สามารถมีชีวิตโลดแล่นอยู่ในเกมที่สร้างขึ้นเองได้ เพื่อทำให้ความฝันนี้เกิดขึ้นจริง จึงเป็นเหตุผลที่ทำให้หนูมีความตั้งใจจริงอย่างยิ่งที่จะเข้ามาศึกษาในคณะนี้ค่ะ
+                </p>
+            </div>
+        </div>
+
+        <!-- ส่วนงานอดิเรก (ผลงานวาดรูป 16 รูป แบ่งเป็น 4 หน้า) -->
+        <h2 class="section-title">🎨 งานอดิเรก & ผลงานวาดรูป</h2>
+        
+        <div class="hobby-section">
+            <!-- หน้า 1 (4 รูป) -->
+            <div class="gallery-grid active" id="hobby-page-1">
+                <div class="gallery-item" onclick="openModal('รูป 1.jpg')"><img src="รูป 1.jpg" alt="รูป 1"></div>
+                <div class="gallery-item" onclick="openModal('รูป 2.jpg')"><img src="รูป 2.jpg" alt="รูป 2"></div>
+                <div class="gallery-item" onclick="openModal('รูป 3.jpg')"><img src="รูป 3.jpg" alt="รูป 3"></div>
+                <div class="gallery-item" onclick="openModal('รูป 4.jpg')"><img src="รูป 4.jpg" alt="รูป 4"></div>
+            </div>
+
+            <!-- หน้า 2 (4 รูป) -->
+            <div class="gallery-grid" id="hobby-page-2">
+                <div class="gallery-item" onclick="openModal('เอา 1.jpg')"><img src="เอา 1.jpg" alt="เอา 1"></div>
+                <div class="gallery-item" onclick="openModal('เอา 2.jpg')"><img src="เอา 2.jpg" alt="เอา 2"></div>
+                <div class="gallery-item" onclick="openModal('เอา 3.jpg')"><img src="เอา 3.jpg" alt="เอา 3"></div>
+                <div class="gallery-item" onclick="openModal('เอา 4.jpg')"><img src="เอา 4.jpg" alt="เอา 4"></div>
+            </div>
+
+            <!-- หน้า 3 (4 รูป) -->
+            <div class="gallery-grid" id="hobby-page-3">
+                <div class="gallery-item" onclick="openModal('เอา 5.jpg')"><img src="เอา 5.jpg" alt="เอา 5"></div>
+                <div class="gallery-item" onclick="openModal('เอา 6.jpg')"><img src="เอา 6.jpg" alt="เอา 6"></div>
+                <div class="gallery-item" onclick="openModal('เอา 7.jpg')"><img src="เอา 7.jpg" alt="เอา 7"></div>
+                <div class="gallery-item" onclick="openModal('เอา 8.jpg')"><img src="เอา 8.jpg" alt="เอา 8"></div>
+            </div>
+
+            <!-- หน้า 4 (4 รูป) -->
+            <div class="gallery-grid" id="hobby-page-4">
+                <div class="gallery-item" onclick="openModal('เอา 9.jpg')"><img src="เอา 9.jpg" alt="เอา 9"></div>
+                <div class="gallery-item" onclick="openModal('เอา 10.jpg')"><img src="เอา 10.jpg" alt="เอา 10"></div>
+                <div class="gallery-item" onclick="openModal('เอา 11.jpg')"><img src="เอา 11.jpg" alt="เอา 11"></div>
+                <div class="gallery-item" onclick="openModal('เอา 12.jpg')"><img src="เอา 12.jpg" alt="เอา 12"></div>
+            </div>
+
+            <!-- ปุ่มเปลี่ยนหน้างานอดิเรก -->
+            <div class="pagination">
+                <button class="page-btn active" onclick="changeHobbyPage(1, event)">หน้า 1</button>
+                <button class="page-btn" onclick="changeHobbyPage(2, event)">หน้า 2</button>
+                <button class="page-btn" onclick="changeHobbyPage(3, event)">หน้า 3</button>
+                <button class="page-btn" onclick="changeHobbyPage(4, event)">หน้า 4</button>
+            </div>
         </div>
 
         <div class="btn-group">
-            <a href="index.html" class="btn btn-back">&larr; ย้อนกลับหน้าแรก</a>
-            <a href="portfolio.html" class="btn btn-next">เข้าดูผลงาน &rarr;</a>
+            <a href="index.html" class="btn btn-back">&larr; หน้าแรก</a>
+            <a href="portfolio.html" class="btn btn-next">เข้าดูผลงานรวม &rarr;</a>
         </div>
     </div>
+
+    <!-- Modal ซูมภาพ -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="close-modal">&times;</span>
+        <img class="modal-img" id="imgFull">
+    </div>
+
+    <script>
+        function changeHobbyPage(pageNum, evt) {
+            document.querySelectorAll('.hobby-section .gallery-grid').forEach(grid => {
+                grid.classList.remove('active');
+            });
+            document.querySelectorAll('.hobby-section .page-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            document.getElementById('hobby-page-' + pageNum).classList.add('active');
+            evt.target.classList.add('active');
+        }
+
+        function openModal(src) {
+            document.getElementById('imageModal').style.display = 'flex';
+            document.getElementById('imgFull').src = src;
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+    </script>
 
 </body>
 </html>
