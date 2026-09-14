@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ยินดีต้อนรับสู่เว็บไซต์ - Home</title>
+    <title>Portfolio - หน้าแรก</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700;800&family=Sarabun:wght@400;600;700&display=swap" rel="stylesheet">
     
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Kanit', sans-serif;
+            font-family: 'Kanit', 'Sarabun', sans-serif;
         }
 
         /* ==================== สไตล์เอฟเฟกต์ม่านสีแดง ==================== */
@@ -24,9 +24,10 @@
             width: 100vw;
             height: 100vh;
             z-index: 9999;
-            pointer-events: none;
             display: flex;
             overflow: hidden;
+            cursor: pointer;
+            transition: visibility 1.8s;
         }
 
         .curtain-panel {
@@ -35,10 +36,7 @@
             background: linear-gradient(to right, #800000, #b30000, #d90429, #800000);
             box-shadow: inset 0 0 50px rgba(0,0,0,0.8);
             position: relative;
-            animation-duration: 1.8s;
-            animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
-            animation-fill-mode: forwards;
-            animation-delay: 0.3s;
+            transition: transform 1.5s cubic-bezier(0.77, 0, 0.175, 1);
         }
 
         .curtain-panel::before {
@@ -55,23 +53,68 @@
         }
 
         .curtain-left {
-            animation-name: openCurtainLeft;
             border-right: 3px solid #ffb3b3;
         }
 
         .curtain-right {
-            animation-name: openCurtainRight;
             border-left: 3px solid #ffb3b3;
         }
 
-        @keyframes openCurtainLeft {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-100%); }
+        /* ปุ่มและข้อความตรงกลางม่าน */
+        .curtain-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10000;
+            text-align: center;
+            color: #ffffff;
+            transition: opacity 0.5s ease;
+            pointer-events: auto;
         }
 
-        @keyframes openCurtainRight {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(100%); }
+        .curtain-btn {
+            background: linear-gradient(135deg, #ff007f, #7928ca);
+            color: #ffffff;
+            font-size: 1.5rem;
+            font-weight: 800;
+            padding: 20px 45px;
+            border: 3px solid #ffffff;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 0 30px rgba(255, 0, 128, 0.8), 0 10px 20px rgba(0,0,0,0.5);
+            transition: all 0.3s ease;
+            animation: pulseGlow 2s infinite;
+        }
+
+        .curtain-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 50px rgba(255, 0, 128, 1), 0 15px 25px rgba(0,0,0,0.6);
+        }
+
+        .curtain-hint {
+            margin-top: 15px;
+            font-size: 1.1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+            letter-spacing: 1px;
+        }
+
+        /* สภาวะเมื่อสั่งเปิดม่าน (ผ่าน JavaScript) */
+        .curtain-container.open .curtain-left {
+            transform: translateX(-100%);
+        }
+
+        .curtain-container.open .curtain-right {
+            transform: translateX(100%);
+        }
+
+        .curtain-container.open .curtain-content {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .curtain-container.open {
+            pointer-events: none;
         }
 
         /* ==================== สไตล์หน้าเว็บหลัก ==================== */
@@ -83,40 +126,107 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px;
-            overflow: hidden;
+            padding: 40px 20px;
+            overflow-x: hidden;
             position: relative;
         }
 
-        body::before {
-            content: '';
-            position: fixed;
+        /* เอฟเฟกต์อนุภาคระยิบระยับ */
+        .stars {
+            position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
             pointer-events: none;
             background: radial-gradient(2px 2px at 20px 30px, #fff, rgba(0,0,0,0)),
                         radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)),
-                        radial-gradient(3px 3px at 80px 120px, #fff, rgba(0,0,0,0));
+                        radial-gradient(3px 3px at 80px 120px, #fff, rgba(0,0,0,0)),
+                        radial-gradient(2px 2px at 150px 200px, #fff, rgba(0,0,0,0));
             background-repeat: repeat;
             background-size: 200px 200px;
             animation: sparkle 4s linear infinite;
         }
 
-        .welcome-card {
-            background: rgba(255, 255, 255, 0.88);
+        .main-card {
+            width: 100%;
+            max-width: 950px;
+            background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(20px);
             border-radius: 40px;
             border: 3px solid rgba(255, 255, 255, 0.9);
-            box-shadow: 0 0 50px rgba(255, 0, 128, 0.35);
+            box-shadow: 0 0 50px rgba(255, 105, 180, 0.5), inset 0 0 15px rgba(255, 255, 255, 0.6);
             padding: 60px 40px;
             text-align: center;
-            max-width: 650px;
-            width: 100%;
-            animation: cardAppear 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
-            z-index: 1;
+            z-index: 2;
+            animation: cardAppear 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        .hero-title {
+        /* รูปภาพเว่อร์วัง */
+        .profile-container {
+            position: relative;
+            width: 290px;
+            height: 290px;
+            margin: 0 auto 35px auto;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .profile-container::before {
+            content: '';
+            position: absolute;
+            top: -20px; left: -20px; right: -20px; bottom: -20px;
+            background: linear-gradient(45deg, #ff007f, #7928ca, #00dfd8, #ff007f);
+            background-size: 300% 300%;
+            border-radius: 50%;
+            z-index: 1;
+            filter: blur(25px);
+            opacity: 0.9;
+            animation: glowRotate 5s linear infinite;
+        }
+
+        .profile-box {
+            position: relative;
+            width: 100%; height: 100%;
+            border-radius: 50%;
+            padding: 8px;
+            background: linear-gradient(135deg, #ffffff, #ff758c, #764ba2);
+            z-index: 2;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(255, 0, 128, 0.4);
+        }
+
+        .profile-img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            transition: all 0.5s ease;
+        }
+
+        .profile-container:hover .profile-box {
+            transform: scale(1.12) rotate(5deg);
+            box-shadow: 0 25px 60px rgba(255, 0, 128, 0.7);
+        }
+
+        .profile-container:hover .profile-img {
+            transform: scale(1.08);
+        }
+
+        /* ข้อความนีออนและปุ่ม */
+        .greeting-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, #ffe6ed, #fff0f5);
+            color: #ff007f;
+            font-size: 1.1rem;
+            font-weight: 800;
+            padding: 10px 30px;
+            border-radius: 30px;
+            border: 2px solid #ff758c;
+            margin-bottom: 20px;
+            box-shadow: 0 0 15px rgba(255, 0, 128, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        .main-title {
             font-size: 3.5rem;
             font-weight: 800;
             background: linear-gradient(135deg, #ff007f, #7928ca, #00dfd8);
@@ -124,38 +234,39 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: textShine 3s linear infinite;
-            margin-bottom: 15px;
-            line-height: 1.2;
+            margin-bottom: 10px;
         }
 
-        .hero-subtitle {
-            font-size: 1.5rem;
-            color: #444;
-            margin-bottom: 40px;
+        .subtitle {
+            font-size: 1.4rem;
+            color: #4a4a4a;
             font-weight: 600;
+            margin-bottom: 40px;
         }
 
-        .btn-enter {
+        .btn-start {
+            position: relative;
             display: inline-block;
-            font-size: 1.35rem;
+            text-decoration: none;
+            font-size: 1.4rem;
             font-weight: 800;
-            padding: 18px 50px;
+            padding: 20px 60px;
             border-radius: 50px;
             background: linear-gradient(135deg, #ff007f, #7928ca);
             color: #ffffff;
-            text-decoration: none;
-            border: 2px solid #ffffff;
-            box-shadow: 0 10px 25px rgba(255, 0, 128, 0.4);
+            box-shadow: 0 15px 35px rgba(121, 40, 202, 0.4);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            cursor: pointer;
+            overflow: hidden;
+            border: 2px solid #ffffff;
         }
 
-        .btn-enter:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 20px 40px rgba(255, 0, 128, 0.6);
-            letter-spacing: 1px;
+        .btn-start:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 25px 50px rgba(255, 0, 128, 0.6);
+            letter-spacing: 2px;
         }
 
+        /* Keyframes แอนิเมชัน */
         @keyframes gradientBG {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
@@ -163,12 +274,33 @@
         }
 
         @keyframes cardAppear {
-            from { opacity: 0; transform: translateY(40px) scale(0.95); }
+            from { opacity: 0; transform: translateY(50px) scale(0.9); }
             to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes glowRotate {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         @keyframes textShine {
             to { background-position: 200% center; }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 30px rgba(255, 0, 128, 0.8); }
+            50% { transform: scale(1.05); box-shadow: 0 0 50px rgba(255, 0, 128, 1); }
         }
 
         @keyframes sparkle {
@@ -177,28 +309,51 @@
         }
 
         @media (max-width: 600px) {
-            .hero-title { font-size: 2.5rem; }
-            .hero-subtitle { font-size: 1.2rem; }
-            .welcome-card { padding: 40px 20px; }
+            .profile-container { width: 220px; height: 220px; }
+            .main-title { font-size: 2.3rem; }
+            .btn-start { padding: 15px 40px; font-size: 1.15rem; }
+            .curtain-btn { font-size: 1.2rem; padding: 15px 30px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- 🎭 เอฟเฟกต์ม่านสีแดงเปิดออก -->
-    <div class="curtain-container">
+    <!-- 🎭 เอฟเฟกต์ม่านสีแดงแบบกดเปิด -->
+    <div class="curtain-container" id="curtain" onclick="openCurtain()">
         <div class="curtain-panel curtain-left"></div>
         <div class="curtain-panel curtain-right"></div>
+        
+        <div class="curtain-content">
+            <button class="curtain-btn">🎭 กดเพื่อเปิดม่าน</button>
+            <p class="curtain-hint">คลิกที่นี่เพื่อเข้าสู่หน้าเว็บไซต์</p>
+        </div>
     </div>
 
-    <!-- 🎴 การ์ดแสดงผลหน้าแรก -->
-    <div class="welcome-card">
-        <h1 class="hero-title">WELCOME TO MY WEBSITE</h1>
-        <p class="hero-subtitle">ยินดีต้อนรับเข้าสู่เว็บไซต์ประวัติส่วนตัวและผลงาน</p>
-        
-        <!-- ปุ่มกดเชื่อมต่อไปยังไฟล์ที่ 2 (portfolio.html) -->
-        <a href="portfolio.html" class="btn-enter">เข้าสู่เว็บไซต์ ✨</a>
+    <!-- 🌟 พื้นหลังดาวระยิบระยับ -->
+    <div class="stars"></div>
+
+    <!-- 🎴 การ์ดต้อนรับหลัก -->
+    <div class="main-card">
+        <div class="profile-container">
+            <div class="profile-box">
+                <img src="มุกค่ะอิอิ.jpg" alt="Profile Image" class="profile-img">
+            </div>
+        </div>
+
+        <span class="greeting-tag">✨ WELCOME TO MY PORTFOLIO ✨</span>
+        <h1 class="main-title">ณัฐธิดา ถกลพัฒนกุล</h1>
+        <p class="subtitle">โรงเรียนบ้านบึง "อุตสาหกรรมนุเคราะห์"</p>
+
+        <!-- ปุ่มกดเข้าสู่ไฟล์ที่ 2 (about.html) -->
+        <a href="about.html" class="btn-start">เข้าสู่เว็บไซต์ &rarr;</a>
     </div>
+
+    <!-- JavaScript สั่งการเปิดม่านเมื่อคลิก -->
+    <script>
+        function openCurtain() {
+            document.getElementById('curtain').classList.add('open');
+        }
+    </script>
 
 </body>
 </html>
