@@ -144,7 +144,7 @@
             line-height: 1.5;
         }
 
-        /* สไตล์สำหรับส่วนข้อมูลการติดต่อที่เพิ่มเข้ามา */
+        /* [เพิ่มใหม่] สไตล์ข้อมูลการติดต่อ */
         .contact-list {
             display: flex;
             flex-direction: column;
@@ -167,15 +167,15 @@
             text-align: center;
         }
 
-        .contact-item .fa-phone { color: #000000; }
+        .contact-item .fa-phone { color: #000; }
         .contact-item .fa-facebook { color: #1877f2; }
         .contact-item .fa-instagram { color: #e4405f; }
         .contact-item .fa-line { color: #00b900; }
 
-        /* สไตล์สำหรับส่วนทักษะที่เพิ่มเข้ามา */
+        /* [เพิ่มใหม่] สไตล์ทักษะ */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 20px;
             margin-top: 15px;
         }
@@ -195,8 +195,8 @@
         }
 
         .skill-icon {
-            width: 35px;
-            height: 35px;
+            width: 38px;
+            height: 38px;
             border-radius: 8px;
             object-fit: contain;
         }
@@ -385,22 +385,9 @@
 <body>
 
     <div class="full-wrapper">
-        <h1 class="page-title">About Me</h1>
+        <h1 class="page-title">เกี่ยวกับฉัน (About Me)</h1>
 
-        <!-- ส่วนประวัติส่วนตัว -->
-        <h2 class="section-title">ประวัติส่วนตัว</h2>
-        <div class="grid-info">
-            <div class="card-info">
-                <span class="label">ชื่อ-นามสกุล</span>
-                <span class="value">ณัฐธิดา ถกลพัฒนกุล</span>
-            </div>
-            <div class="card-info">
-                <span class="label">ชื่อเล่น</span>
-                <span class="value">น้ำมุก</span>
-            </div>
-        </div>
-
-        <!-- เพิ่มส่วนข้อมูลการติดต่อ -->
+        <!-- [เพิ่มใหม่] ข้อมูลการติดต่อ -->
         <h2 class="section-title">ข้อมูลการติดต่อ</h2>
         <div class="card-info full-width" style="margin-bottom: 25px;">
             <div class="contact-list">
@@ -423,32 +410,32 @@
             </div>
         </div>
 
-        <!-- เพิ่มส่วนทักษะ -->
+        <!-- [เพิ่มใหม่] ทักษะ -->
         <h2 class="section-title">ทักษะ</h2>
         <div class="card-info full-width" style="margin-bottom: 25px;">
             <div class="skills-grid">
                 <div class="skill-item">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Ibis_Paint_X_logo.png/600px-Ibis_Paint_X_logo.png" alt="Ibis Paint" class="skill-icon">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Ibis_Paint_X_logo.png/600px-Ibis_Paint_X_logo.png" alt="Ibis Paint" class="skill-icon" onerror="this.src='https://via.placeholder.com/40'">
                     <span>ไอบิสเพนท์ x</span>
                 </div>
                 <div class="skill-item">
-                    <img src="https://procreate.com/assets/images/procreate-icon.png" alt="Procreate" class="skill-icon">
+                    <img src="https://procreate.com/assets/images/procreate-icon.png" alt="Procreate" class="skill-icon" onerror="this.src='https://via.placeholder.com/40'">
                     <span>Procreate</span>
                 </div>
                 <div class="skill-item">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/Autodesk_3ds_Max_logo.svg" alt="3ds Max" class="skill-icon">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/Autodesk_3ds_Max_logo.svg" alt="3ds Max" class="skill-icon" onerror="this.src='https://via.placeholder.com/40'">
                     <span>Autodesk 3ds Max</span>
                 </div>
                 <div class="skill-item">
-                    <img src="https://play-lh.googleusercontent.com/38N3-98x1J5I51N8hE1_Lq4s57x7XN1J448r_v4N2g3" alt="GoPaint" class="skill-icon">
+                    <img src="https://play-lh.googleusercontent.com/38N3-98x1J5I51N8hE1_Lq4s57x7XN1J448r_v4N2g3" alt="GoPaint" class="skill-icon" onerror="this.src='https://via.placeholder.com/40'">
                     <span>GoPaint</span>
                 </div>
                 <div class="skill-item">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Canva_icon_2021.svg" alt="Canva" class="skill-icon">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Canva_icon_2021.svg" alt="Canva" class="skill-icon" onerror="this.src='https://via.placeholder.com/40'">
                     <span>Canva</span>
                 </div>
                 <div class="skill-item">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Blender_logo_no_text.svg" alt="Blender" class="skill-icon">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Blender_logo_no_text.svg" alt="Blender" class="skill-icon" onerror="this.src='https://via.placeholder.com/40'">
                     <span>Blender</span>
                 </div>
             </div>
