@@ -92,7 +92,6 @@
             box-shadow: 0 0 10px rgba(255, 0, 128, 0.5);
         }
 
-        /* ตารางการ์ดแบบ 2 คอลัมน์ */
         .grid-info {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -100,7 +99,6 @@
             margin-bottom: 20px;
         }
 
-        /* ดีไซน์การ์ดตามสไตล์รูปภาพ */
         .card-info {
             background: rgba(255, 255, 255, 0.95);
             border: 2px solid #ffccd5;
@@ -142,7 +140,7 @@
             line-height: 1.5;
         }
 
-        /* สไตล์ไอเทมข้างในการ์ดติดต่อ */
+        /* ข้อมูลการติดต่อ */
         .contact-list {
             display: flex;
             flex-direction: column;
@@ -169,7 +167,7 @@
         .contact-item .fa-instagram { color: #e4405f; }
         .contact-item .fa-line { color: #00b900; }
 
-        /* สไตล์ไอเทมข้างในการ์ดทักษะ */
+        /* ทักษะ */
         .skills-compact-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -190,8 +188,8 @@
         }
 
         .skill-tag img {
-            width: 22px;
-            height: 22px;
+            width: 24px;
+            height: 24px;
             object-fit: contain;
         }
 
@@ -365,9 +363,7 @@
         @keyframes cardAppear {
             from { opacity: 0; transform: translateY(40px) scale(0.95); }
             to { opacity: 1; transform: translateY(0) scale(1); }
-        }
-
-        @keyframes textShine {
+        }@keyframes textShine {
             to { background-position: 200% center; }
         }
 
@@ -402,7 +398,6 @@
     <div class="full-wrapper">
         <h1 class="page-title">ABOUT ME</h1>
 
-        <!-- การ์ดข้อมูลแบบ 2 คอลัมน์สวยงาม -->
         <div class="grid-info">
             <div class="card-info">
                 <span class="label">👤 ชื่อ-นามสกุล</span>
@@ -429,7 +424,7 @@
                 <p class="value">ฟังเพลง, วาดรูป, เล่นเกม</p>
             </div>
 
-            <!-- ข้อมูลติดต่อ (การ์ดฝั่งซ้าย) -->
+            <!-- การ์ดข้อมูลการติดต่อ (การ์ดฝั่งซ้าย) -->
             <div class="card-info">
                 <span class="label">📞 ข้อมูลการติดต่อ</span>
                 <div class="contact-list">
@@ -440,32 +435,32 @@
                 </div>
             </div>
 
-            <!-- ทักษะ (การ์ดฝั่งขวา) -->
+            <!-- การ์ดทักษะ (การ์ดฝั่งขวา) -->
             <div class="card-info">
                 <span class="label">🛠️ ทักษะ</span>
                 <div class="skills-compact-grid">
                     <div class="skill-tag">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Ibis_Paint_X_logo.png/600px-Ibis_Paint_X_logo.png" alt="Ibis Paint" onerror="this.style.display='none'">
+                        <img src="ibis.png" alt="ไอบิสเพนท์ x">
                         <span>ไอบิสเพนท์ x</span>
                     </div>
                     <div class="skill-tag">
-                        <img src="https://procreate.com/assets/images/procreate-icon.png" alt="Procreate" onerror="this.style.display='none'">
+                        <img src="procreate.png" alt="Procreate">
                         <span>Procreate</span>
                     </div>
                     <div class="skill-tag">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/Autodesk_3ds_Max_logo.svg" alt="3ds Max" onerror="this.style.display='none'">
+                        <img src="3dsmax.png" alt="3ds Max">
                         <span>3ds Max</span>
                     </div>
                     <div class="skill-tag">
-                        <img src="https://play-lh.googleusercontent.com/38N3-98x1J5I51N8hE1_Lq4s57x7XN1J448r_v4N2g3" alt="GoPaint" onerror="this.style.display='none'">
+                        <img src="gopaint.png" alt="GoPaint">
                         <span>GoPaint</span>
                     </div>
                     <div class="skill-tag">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Canva_icon_2021.svg" alt="Canva" onerror="this.style.display='none'">
+                        <img src="canva.png" alt="Canva">
                         <span>Canva</span>
                     </div>
                     <div class="skill-tag">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Blender_logo_no_text.svg" alt="Blender" onerror="this.style.display='none'">
+                        <img src="blender.png" alt="Blender">
                         <span>Blender</span>
                     </div>
                 </div>
@@ -506,7 +501,7 @@
             </div>
         </div>
 
-        <!-- ส่วนงานอดิเรก & ผลงานวาดรูป -->
+        <!-- งานอดิเรก & ผลงานวาดรูป -->
         <h2 class="section-title">🎨 งานอดิเรก & ผลงานวาดรูป</h2>
         
         <div class="hobby-section">
