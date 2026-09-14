@@ -27,7 +27,6 @@
             overflow-x: hidden;
         }
 
-        /* เอฟเฟกต์อนุภาคระยิบระยับ */
         body::before {
             content: '';
             position: fixed;
@@ -100,7 +99,6 @@
             margin-bottom: 20px;
         }
 
-        /* การ์ดข้อมูลโฮเวอร์ 3D ลอยเรืองแสง */
         .card-info {
             background: rgba(255, 255, 255, 0.95);
             border: 2px solid #ffccd5;
@@ -144,7 +142,62 @@
             line-height: 1.5;
         }
 
-        /* ส่วนแสดงผลงานอดิเรก */
+        /* ส่วนงานติดต่อ & ทักษะ ในการ์ด */
+        .contact-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 5px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #2c2c2c;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            width: 25px;
+            text-align: center;
+        }
+
+        .contact-item .fa-phone { color: #000; }
+        .contact-item .fa-facebook { color: #1877f2; }
+        .contact-item .fa-instagram { color: #e4405f; }
+        .contact-item .fa-line { color: #00b900; }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 10px 15px;
+            border-radius: 15px;
+            border: 1px solid #ffd1dc;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: #333;
+        }
+
+        .skill-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            object-fit: contain;
+        }
+
         .hobby-section {
             background: rgba(255, 240, 245, 0.7);
             backdrop-filter: blur(10px);
@@ -198,7 +251,6 @@
             transform: scale(1.08);
         }
 
-        /* ปุ่มสลับหน้างานอดิเรก */
         .pagination {
             display: flex;
             justify-content: center;
@@ -227,7 +279,6 @@
             transform: translateY(-3px);
         }
 
-        /* ปุ่มนำทางท้ายหน้าสุดอลังการ */
         .btn-group {
             display: flex;
             gap: 20px;
@@ -277,7 +328,6 @@
             letter-spacing: 1px;
         }
 
-        /* Modal ซูมภาพ */
         .modal {
             display: none;
             position: fixed;
@@ -312,7 +362,6 @@
             cursor: pointer;
         }
 
-        /* Keyframes แอนิเมชัน */
         @keyframes gradientBG {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
@@ -343,62 +392,6 @@
             to { transform: scale(1); opacity: 1; }
         }
 
-        /* สไตล์สำหรับส่วนที่เพิ่มใหม่: ข้อมูลการติดต่อ & ทักษะ */
-        .contact-list {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-top: 5px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #2c2c2c;
-        }
-
-        .contact-item i {
-            font-size: 1.8rem;
-            width: 35px;
-            text-align: center;
-        }
-
-        .contact-item .fa-phone { color: #000; }
-        .contact-item .fa-facebook { color: #1877f2; }
-        .contact-item .fa-instagram { color: #e4405f; }
-        .contact-item .fa-line { color: #00b900; }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-            margin-top: 10px;
-        }
-
-        .skill-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            background: rgba(255, 255, 255, 0.85);
-            padding: 12px 18px;
-            border-radius: 15px;
-            border: 1px solid #ffd1dc;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-            font-weight: 600;
-            font-size: 1.1rem;
-            color: #333;
-        }
-
-        .skill-icon {
-            width: 38px;
-            height: 38px;
-            border-radius: 8px;
-            object-fit: contain;
-        }
-
         @media (max-width: 800px) {
             .grid-info, .gallery-grid { grid-template-columns: 1fr; }
             .card-info.full-width { grid-column: span 1; }
@@ -415,7 +408,7 @@
     <div class="full-wrapper">
         <h1 class="page-title">ABOUT ME</h1>
 
-        <!-- ข้อมูลส่วนตัว -->
+        <!-- การ์ดข้อมูลทั้งหมดรวมใน Grid เดียวกัน -->
         <div class="grid-info">
             <div class="card-info">
                 <span class="label">👤 ชื่อ-นามสกุล</span>
@@ -464,6 +457,61 @@
                 </p>
             </div>
 
+            <!-- การ์ดข้อมูลการติดต่อ (รวมอยู่ใน Grid) -->
+            <div class="card-info full-width">
+                <span class="label">📞 ข้อมูลการติดต่อ</span>
+                <div class="contact-list">
+                    <div class="contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>095-543-6280</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-brands fa-facebook"></i>
+                        <span>ณัฐธิดา ถกลพัฒนกุล</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-brands fa-instagram"></i>
+                        <span>nammook__k</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-brands fa-line"></i>
+                        <span>nammok...</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- การ์ดทักษะ (รวมอยู่ใน Grid) -->
+            <div class="card-info full-width">
+                <span class="label">🛠️ ทักษะ</span>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Ibis_Paint_X_logo.png/600px-Ibis_Paint_X_logo.png" alt="Ibis Paint" class="skill-icon" onerror="this.src='https://via.placeholder.com/40'">
+                        <span>ไอบิสเพนท์ x</span>
+                    </div>
+                    <div class="skill-item">
+                        <img src="https://procreate.com/assets/images/procreate-icon.png" alt="Procreate" class="skill-icon" onerror="this.src='https://via.placeholder.com/40'">
+                        <span>Procreate</span>
+                    </div>
+                    <div class="skill-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/Autodesk_3ds_Max_logo.svg" alt="3ds Max" class="skill-icon" onerror="this.src='https://via.placeholder.com/40'">
+                        <span>Autodesk 3ds Max</span>
+                    </div>
+                    <div class="skill-item">
+                        <img src="https://play-lh.googleusercontent.com/38N3-98x1J5I51N8hE1_Lq4s57x7XN1J448r_v4N2g3" alt="GoPaint" class="skill-icon" onerror="this.src='https://via.placeholder.com/40'">
+                        <span>GoPaint</span>
+                    </div>
+                    <div class="skill-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Canva_icon_2021.svg" alt="Canva" class="skill-icon" onerror="this.src='https://via.placeholder.com/40'">
+                        <span>Canva</span>
+                    </div>
+                    <div class="skill-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Blender_logo_no_text.svg" alt="Blender" class="skill-icon" onerror="this.src='https://via.placeholder.com/40'">
+                        <span>Blender</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- คณะที่อยากเข้า -->
             <div class="card-info full-width">
                 <span class="label">🎯 คณะ / สาขาที่สนใจเข้าศึกษาต่อ</span>
                 <p class="value">สาขาเทคโนโลยีสารสนเทศเพื่ออุตสาหกรรมดิจิทัล (ITDI)<br>คณะวิทยาการสารสนเทศ มหาวิทยาลัยบูรพา</p>
@@ -476,65 +524,10 @@
             </div>
         </div>
 
-        <!-- เพิ่มส่วนที่ 1: ข้อมูลการติดต่อ -->
-        <h2 class="section-title">📞 ข้อมูลการติดต่อ</h2>
-        <div class="card-info full-width" style="margin-bottom: 25px;">
-            <div class="contact-list">
-                <div class="contact-item">
-                    <i class="fa-solid fa-phone"></i>
-                    <span>095-543-6280</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fa-brands fa-facebook"></i>
-                    <span>ณัฐธิดา ถกลพัฒนกุล</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fa-brands fa-instagram"></i>
-                    <span>nammook__k</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fa-brands fa-line"></i>
-                    <span>nammok...</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- เพิ่มส่วนที่ 2: ทักษะ -->
-        <h2 class="section-title">🛠️ ทักษะ</h2>
-        <div class="card-info full-width" style="margin-bottom: 25px;">
-            <div class="skills-grid">
-                <div class="skill-item">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Ibis_Paint_X_logo.png/600px-Ibis_Paint_X_logo.png" alt="Ibis Paint" class="skill-icon" onerror="this.src='https://via.placeholder.com/40'">
-                    <span>ไอบิสเพนท์ x</span>
-                </div>
-                <div class="skill-item">
-                    <img src="https://procreate.com/assets/images/procreate-icon.png" alt="Procreate" class="skill-icon" onerror="this.src='https://via.placeholder.com/40'">
-                    <span>Procreate</span>
-                </div>
-                <div class="skill-item">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/Autodesk_3ds_Max_logo.svg" alt="3ds Max" class="skill-icon" onerror="this.src='https://via.placeholder.com/40'">
-                    <span>Autodesk 3ds Max</span>
-                </div>
-                <div class="skill-item">
-                    <img src="https://play-lh.googleusercontent.com/38N3-98x1J5I51N8hE1_Lq4s57x7XN1J448r_v4N2g3" alt="GoPaint" class="skill-icon" onerror="this.src='https://via.placeholder.com/40'">
-                    <span>GoPaint</span>
-                </div>
-                <div class="skill-item">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Canva_icon_2021.svg" alt="Canva" class="skill-icon" onerror="this.src='https://via.placeholder.com/40'">
-                    <span>Canva</span>
-                </div>
-                <div class="skill-item">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Blender_logo_no_text.svg" alt="Blender" class="skill-icon" onerror="this.src='https://via.placeholder.com/40'">
-                    <span>Blender</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- ส่วนงานอดิเรก (ผลงานวาดรูป 16 รูป แบ่งเป็น 4 หน้า) -->
+        <!-- ส่วนงานอดิเรก & ผลงานวาดรูป -->
         <h2 class="section-title">🎨 งานอดิเรก & ผลงานวาดรูป</h2>
         
         <div class="hobby-section">
-            <!-- หน้า 1 (4 รูป) -->
             <div class="gallery-grid active" id="hobby-page-1">
                 <div class="gallery-item" onclick="openModal('รูป 1.jpg')"><img src="รูป 1.jpg" alt="รูป 1"></div>
                 <div class="gallery-item" onclick="openModal('รูป 2.jpg')"><img src="รูป 2.jpg" alt="รูป 2"></div>
@@ -542,7 +535,6 @@
                 <div class="gallery-item" onclick="openModal('รูป 4.jpg')"><img src="รูป 4.jpg" alt="รูป 4"></div>
             </div>
 
-            <!-- หน้า 2 (4 รูป) -->
             <div class="gallery-grid" id="hobby-page-2">
                 <div class="gallery-item" onclick="openModal('เอา 1.jpg')"><img src="เอา 1.jpg" alt="เอา 1"></div>
                 <div class="gallery-item" onclick="openModal('เอา 2.jpg')"><img src="เอา 2.jpg" alt="เอา 2"></div>
@@ -550,7 +542,6 @@
                 <div class="gallery-item" onclick="openModal('เอา 4.jpg')"><img src="เอา 4.jpg" alt="เอา 4"></div>
             </div>
 
-            <!-- หน้า 3 (4 รูป) -->
             <div class="gallery-grid" id="hobby-page-3">
                 <div class="gallery-item" onclick="openModal('เอา 5.jpg')"><img src="เอา 5.jpg" alt="เอา 5"></div>
                 <div class="gallery-item" onclick="openModal('เอา 6.jpg')"><img src="เอา 6.jpg" alt="เอา 6"></div>
@@ -558,7 +549,6 @@
                 <div class="gallery-item" onclick="openModal('เอา 8.jpg')"><img src="เอา 8.jpg" alt="เอา 8"></div>
             </div>
 
-            <!-- หน้า 4 (4 รูป) -->
             <div class="gallery-grid" id="hobby-page-4">
                 <div class="gallery-item" onclick="openModal('เอา 9.jpg')"><img src="เอา 9.jpg" alt="เอา 9"></div>
                 <div class="gallery-item" onclick="openModal('เอา 10.jpg')"><img src="เอา 10.jpg" alt="เอา 10"></div>
@@ -566,7 +556,6 @@
                 <div class="gallery-item" onclick="openModal('เอา 12.jpg')"><img src="เอา 12.jpg" alt="เอา 12"></div>
             </div>
 
-            <!-- ปุ่มเปลี่ยนหน้างานอดิเรก -->
             <div class="pagination">
                 <button class="page-btn active" onclick="changeHobbyPage(1, event)">หน้า 1</button>
                 <button class="page-btn" onclick="changeHobbyPage(2, event)">หน้า 2</button>
@@ -581,7 +570,6 @@
         </div>
     </div>
 
-    <!-- Modal ซูมภาพ -->
     <div id="imageModal" class="modal" onclick="closeModal()">
         <span class="close-modal">&times;</span>
         <img class="modal-img" id="imgFull">
