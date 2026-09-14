@@ -57,7 +57,7 @@
             animation: cardAppear 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        /* เมนูสลับหน้าด้านบน */
+        /* เมนูสลับหน้าด้านบน (เหลือแค่ 2 ปุ่ม) */
         .main-nav {
             display: flex;
             justify-content: center;
@@ -383,13 +383,13 @@
 <body>
 
     <div class="full-wrapper">
-        <!-- เมนูสลับหน้าด้านบน -->
+        <!-- เมนูสลับหน้าด้านบน (มีแค่เกี่ยวกับฉัน และ ผลงานรวม) -->
         <nav class="main-nav">
             <button class="nav-btn active" onclick="switchMainPage('about-tab', event)">👤 เกี่ยวกับฉัน</button>
             <button class="nav-btn" onclick="switchMainPage('portfolio-tab', event)">🎨 ผลงานรวม</button>
         </nav>
 
-        <!-- ==================== หน้าที่ 1 (หน้าหลัก): เกี่ยวกับฉัน (ABOUT ME) ==================== -->
+        <!-- ==================== หน้าที่ 1: เกี่ยวกับฉัน (ABOUT ME) ==================== -->
         <div id="about-tab" class="page-tab active">
             <h1 class="page-title">ABOUT ME</h1>
 
