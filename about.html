@@ -40,43 +40,8 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-align: center;
-            margin-bottom: 25px;
+            margin-bottom: 40px;
             letter-spacing: 2px;
-        }
-
-        /* ปุ่มแท็บสลับหน้า */
-        .tab-navigation {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 35px;
-        }
-
-        .tab-btn {
-            background: #ffffff;
-            border: 2px solid #ff3366;
-            color: #ff3366;
-            padding: 12px 30px;
-            border-radius: 30px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .tab-btn.active, .tab-btn:hover {
-            background: #ff3366;
-            color: #ffffff;
-            box-shadow: 0 5px 15px rgba(255, 51, 102, 0.3);
-        }
-
-        /* ส่วนเนื้อหาหลัก */
-        .content-page {
-            display: none;
-        }
-
-        .content-page.active {
-            display: block;
         }
 
         .section-title {
@@ -84,7 +49,7 @@
             font-weight: 800;
             color: #764ba2;
             text-align: center;
-            margin-bottom: 30px;
+            margin: 10px 0 25px 0;
             position: relative;
         }
 
@@ -98,20 +63,28 @@
             border-radius: 2px;
         }
 
-        /* กล่องเนื้อหาการ์ด */
-        .info-card {
+        .about-section {
             background: rgba(255, 240, 245, 0.5);
             border: 2px dashed #ff85a2;
             border-radius: 30px;
-            padding: 35px;
-            margin-bottom: 30px;
+            padding: 35px 20px;
+            margin-bottom: 40px;
         }
 
-        /* เลย์เอาต์หน้าประวัติส่วนตัว */
+        .about-page-content {
+            display: none;
+        }
+
+        .about-page-content.active {
+            display: block;
+        }
+
+        /* หน้า 1: เลย์เอาต์ประวัติส่วนตัว */
         .profile-container {
             display: flex;
             gap: 40px;
             align-items: center;
+            padding: 10px 20px;
         }
 
         .profile-img-wrap {
@@ -146,11 +119,12 @@
             color: #764ba2;
         }
 
-        /* เลย์เอาต์งานอดิเรก Grid */
+        /* หน้า 2: เลย์เอาต์งานอดิเรก */
         .hobby-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 25px;
+            padding: 10px;
         }
 
         .hobby-card {
@@ -187,7 +161,33 @@
             line-height: 1.5;
         }
 
-        /* ปุ่มด้านล่าง */
+        /* ปุ่มเปลี่ยนหน้าแบบเดิมเป๊ะๆ */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
+        .page-btn {
+            background: #ffffff;
+            border: 2px solid #ff3366;
+            color: #ff3366;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .page-btn.active, .page-btn:hover {
+            background: #ff3366;
+            color: #ffffff;
+            box-shadow: 0 5px 15px rgba(255, 51, 102, 0.3);
+        }
+
         .btn-group {
             display: flex;
             gap: 20px;
@@ -246,16 +246,11 @@
     <div class="full-wrapper">
         <h1 class="page-title">ABOUT ME</h1>
 
-        <!-- ปุ่มสลับหน้าภายในไฟล์ -->
-        <div class="tab-navigation">
-            <button class="tab-btn active" onclick="switchPage('profile-page', event)">👤 ประวัติส่วนตัว</button>
-            <button class="tab-btn" onclick="switchPage('hobby-page', event)">🎨 งานอดิเรก</button>
-        </div>
-
-        <!-- PAGE 1: ประวัติส่วนตัว -->
-        <div class="content-page active" id="profile-page">
-            <div class="info-card">
-                <h2 class="section-title">ข้อมูลส่วนตัว</h2>
+        <div class="about-section">
+            
+            <!-- หน้า 1: ประวัติส่วนตัว -->
+            <div class="about-page-content active" id="about-page-1">
+                <h2 class="section-title">👤 ประวัติส่วนตัว</h2>
                 <div class="profile-container">
                     <div class="profile-img-wrap">
                         <img src="profile.jpg" alt="รูปโปรไฟล์">
@@ -270,55 +265,52 @@
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- PAGE 2: งานอดิเรก (Hobbies) -->
-        <div class="content-page" id="hobby-page">
-            <div class="info-card">
-                <h2 class="section-title">งานอดิเรกที่ชื่นชอบ</h2>
+            <!-- หน้า 2: งานอดิเรก -->
+            <div class="about-page-content" id="about-page-2">
+                <h2 class="section-title">🎨 งานอดิเรก</h2>
                 <div class="hobby-grid">
-                    
                     <div class="hobby-card">
                         <div class="hobby-icon">💻</div>
                         <h3 class="hobby-title">เขียนโค้ด & ทำเว็บ</h3>
                         <p class="hobby-desc">ชอบฝึกออกแบบเว็บไซต์ พัฒนาทักษะการเขียนโปรแกรม และสร้างสรรค์สิ่งใหม่ๆ</p>
                     </div>
-
                     <div class="hobby-card">
                         <div class="hobby-icon">🎮</div>
                         <h3 class="hobby-title">เล่นเกม</h3>
                         <p class="hobby-desc">ผ่อนคลายความเครียดด้วยการเล่นเกม ฝึกการแก้ไขปัญหา และทำงานร่วมกับผู้อื่น</p>
                     </div>
-
                     <div class="hobby-card">
                         <div class="hobby-icon">🎵</div>
                         <h3 class="hobby-title">ฟังเพลง</h3>
                         <p class="hobby-desc">ฟังเพลงเพื่อเพิ่มสมาธิในการทำงาน และช่วยให้ผ่อนคลายในเวลาว่าง</p>
                     </div>
-
                     <div class="hobby-card">
                         <div class="hobby-icon">📚</div>
                         <h3 class="hobby-title">อ่านหนังสือ</h3>
                         <p class="hobby-desc">ศึกษาหาความรู้เพิ่มเติมเกี่ยวกับเทคโนโลยี การพัฒนาตนเอง และเรื่องที่สนใจ</p>
                     </div>
-
                     <div class="hobby-card">
                         <div class="hobby-icon">📸</div>
                         <h3 class="hobby-title">ถ่ายภาพ</h3>
                         <p class="hobby-desc">เก็บภาพความทรงจำ บรรยากาศสถานที่ต่างๆ และฝึกมุมมองศิลปะ</p>
                     </div>
-
                     <div class="hobby-card">
                         <div class="hobby-icon">🎨</div>
                         <h3 class="hobby-title">ออกแบบ</h3>
                         <p class="hobby-desc">สร้างสรรค์ผลงานกราฟิกและจัดโทนสีให้สวยงาม น่าสนใจ</p>
                     </div>
-
                 </div>
             </div>
+
+            <!-- ปุ่มเปลี่ยนหน้า (หน้า 1 / หน้า 2) -->
+            <div class="pagination">
+                <button class="page-btn active" onclick="changeAboutPage(1, event)">หน้า 1</button>
+                <button class="page-btn" onclick="changeAboutPage(2, event)">หน้า 2</button>
+            </div>
+
         </div>
 
-        <!-- ปุ่มนำทางลัดไปหน้าอื่น -->
         <div class="btn-group">
             <a href="index.html" class="btn btn-back">&larr; หน้าหลัก</a>
             <a href="certificates.html" class="btn btn-next">เกียรติบัตร &rarr;</a>
@@ -326,18 +318,15 @@
     </div>
 
     <script>
-        function switchPage(pageId, evt) {
-            // ซ่อนหน้าทั้งหมด
-            document.querySelectorAll('.content-page').forEach(page => {
+        function changeAboutPage(pageNum, evt) {
+            document.querySelectorAll('.about-page-content').forEach(page => {
                 page.classList.remove('active');
             });
-            // เอาสถานะ active ออกจากปุ่มทั้งหมด
-            document.querySelectorAll('.tab-btn').forEach(btn => {
+            document.querySelectorAll('.pagination .page-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
 
-            // แสดงหน้าที่เลือก และแสดงสถานะปุ่ม active
-            document.getElementById(pageId).classList.add('active');
+            document.getElementById('about-page-' + pageNum).classList.add('active');
             evt.target.classList.add('active');
         }
     </script>
