@@ -57,7 +57,7 @@
             animation: cardAppear 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        /* เมนูสลับหน้าด้านบน (Main Navigation) */
+        /* เมนูสลับหน้าด้านบน */
         .main-nav {
             display: flex;
             justify-content: center;
@@ -139,7 +139,6 @@
             margin-bottom: 20px;
         }
 
-        /* การ์ดข้อมูลโฮเวอร์ 3D ลอยเรืองแสง */
         .card-info {
             background: rgba(255, 255, 255, 0.95);
             border: 2px solid #ffccd5;
@@ -183,7 +182,7 @@
             line-height: 1.5;
         }
 
-        /* ส่วนแสดงผลงานอดิเรก */
+        /* ส่วนงานอดิเรก */
         .hobby-section {
             background: rgba(255, 240, 245, 0.7);
             backdrop-filter: blur(10px);
@@ -237,7 +236,6 @@
             transform: scale(1.08);
         }
 
-        /* ปุ่มสลับหน้างานอดิเรก */
         .pagination {
             display: flex;
             justify-content: center;
@@ -266,7 +264,6 @@
             transform: translateY(-3px);
         }
 
-        /* ปุ่มนำทางท้ายหน้า */
         .btn-group {
             display: flex;
             gap: 20px;
@@ -288,20 +285,6 @@
             overflow: hidden;
             cursor: pointer;
             border: none;
-        }
-
-        .btn-back {
-            background: #ffffff;
-            color: #ff007f;
-            border: 3px solid #ff007f;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-        }
-
-        .btn-back:hover {
-            background: #ff007f;
-            color: #ffffff;
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(255, 0, 128, 0.4);
         }
 
         .btn-next {
@@ -357,7 +340,6 @@
             color: #ff007f;
         }
 
-        /* Keyframes แอนิเมชัน */
         @keyframes gradientBG {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
@@ -403,26 +385,11 @@
     <div class="full-wrapper">
         <!-- เมนูสลับหน้าด้านบน -->
         <nav class="main-nav">
-            <button class="nav-btn" onclick="switchMainPage('home-tab', event)">🏠 หน้าแรก</button>
             <button class="nav-btn active" onclick="switchMainPage('about-tab', event)">👤 เกี่ยวกับฉัน</button>
             <button class="nav-btn" onclick="switchMainPage('portfolio-tab', event)">🎨 ผลงานรวม</button>
         </nav>
 
-        <!-- ==================== หน้าที่ 1: หน้าแรก (HOME) ==================== -->
-        <div id="home-tab" class="page-tab">
-            <h1 class="page-title">WELCOME TO MY WEBSITE</h1>
-            <div class="card-info full-width" style="text-align: center; padding: 40px;">
-                <h2 style="color: #ff007f; margin-bottom: 15px; font-size: 2rem;">ยินดีต้อนรับสู่พอร์ตโฟลิโอออนไลน์!</h2>
-                <p class="value" style="font-weight: 400; font-size: 1.2rem; color: #555;">
-                    เว็บไซต์นี้จัดทำขึ้นเพื่อแนะนำประวัติส่วนตัว ความสนใจ และรวบรวมผลงานการวาดรูปสร้างสรรค์ตัวละคร สามารถเลือกดูรายละเอียดในส่วนต่างๆ ได้จากเมนูด้านบนครับ
-                </p>
-                <div class="btn-group" style="margin-top: 30px;">
-                    <button class="btn btn-next" onclick="switchMainPage('about-tab')">ดูประวัติส่วนตัว &rarr;</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- ==================== หน้าที่ 2: เกี่ยวกับฉัน (ABOUT ME - โค้ดเดิมของคุณ) ==================== -->
+        <!-- ==================== หน้าที่ 1 (หน้าหลัก): เกี่ยวกับฉัน (ABOUT ME) ==================== -->
         <div id="about-tab" class="page-tab active">
             <h1 class="page-title">ABOUT ME</h1>
 
@@ -533,12 +500,11 @@
             </div>
 
             <div class="btn-group">
-                <button class="btn btn-back" onclick="switchMainPage('home-tab')">&larr; หน้าแรก</button>
-                <button class="btn btn-next" onclick="switchMainPage('portfolio-tab')">เข้าดูผลงานรวม &rarr;</button>
+                <button class="btn btn-next" onclick="switchMainPage('portfolio-tab')">ไปที่หน้าผลงานรวม &rarr;</button>
             </div>
         </div>
 
-        <!-- ==================== หน้าที่ 3: ผลงานรวม (PORTFOLIO) ==================== -->
+        <!-- ==================== หน้าที่ 2: ผลงานรวม (PORTFOLIO) ==================== -->
         <div id="portfolio-tab" class="page-tab">
             <h1 class="page-title">MY PORTFOLIO</h1>
             <div class="card-info full-width" style="margin-bottom: 30px;">
@@ -560,7 +526,7 @@
             </div>
 
             <div class="btn-group">
-                <button class="btn btn-back" onclick="switchMainPage('about-tab')">&larr; กลับหน้าประวัติส่วนตัว</button>
+                <button class="btn btn-next" onclick="switchMainPage('about-tab')">&larr; กลับหน้าประวัติส่วนตัว</button>
             </div>
         </div>
 
@@ -573,7 +539,6 @@
     </div>
 
     <script>
-        // ฟังก์ชันสลับหน้าหลัก (Home, About Me, Portfolio) ในไฟล์เดียว
         function switchMainPage(tabId, event) {
             document.querySelectorAll('.page-tab').forEach(tab => {
                 tab.classList.remove('active');
@@ -587,15 +552,13 @@
             if (event) {
                 event.target.classList.add('active');
             } else {
-                // อัปเดตปุ่ม Navigation Bar ให้ตรงกับหน้าที่แสดงอยู่
-                const btnIndex = tabId === 'home-tab' ? 0 : tabId === 'about-tab' ? 1 : 2;
+                const btnIndex = tabId === 'about-tab' ? 0 : 1;
                 document.querySelectorAll('.nav-btn')[btnIndex].classList.add('active');
             }
 
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // ฟังก์ชันสลับหน้าแกลเลอรีในส่วนงานอดิเรก
         function changeHobbyPage(pageNum, evt) {
             document.querySelectorAll('.hobby-section .gallery-grid').forEach(grid => {
                 grid.classList.remove('active');
@@ -608,7 +571,6 @@
             evt.target.classList.add('active');
         }
 
-        // ฟังก์ชันเปิด-ปิด Modal ซูมรูปภาพ
         function openModal(src) {
             document.getElementById('imageModal').style.display = 'flex';
             document.getElementById('imgFull').src = src;
@@ -620,7 +582,6 @@
             document.body.style.overflow = 'auto';
         }
 
-        // กด Escape เพื่อปิด Modal
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 closeModal();
