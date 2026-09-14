@@ -177,20 +177,20 @@
         .skill-tag {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             background: #fff0f3;
-            padding: 8px 12px;
-            border-radius: 12px;
+            padding: 10px 14px;
+            border-radius: 15px;
             border: 1px solid #ffccd5;
-            font-weight: 600;
-            font-size: 0.95rem;
+            font-weight: 700;
+            font-size: 1.05rem;
             color: #333;
         }
 
-        .skill-tag img {
-            width: 24px;
-            height: 24px;
-            object-fit: contain;
+        .skill-tag i {
+            font-size: 1.3rem;
+            width: 20px;
+            text-align: center;
         }
 
         .hobby-section {
@@ -363,7 +363,9 @@
         @keyframes cardAppear {
             from { opacity: 0; transform: translateY(40px) scale(0.95); }
             to { opacity: 1; transform: translateY(0) scale(1); }
-        }@keyframes textShine {
+        }
+
+        @keyframes textShine {
             to { background-position: 200% center; }
         }
 
@@ -424,7 +426,7 @@
                 <p class="value">ฟังเพลง, วาดรูป, เล่นเกม</p>
             </div>
 
-            <!-- การ์ดข้อมูลการติดต่อ (การ์ดฝั่งซ้าย) -->
+            <!-- การ์ดข้อมูลการติดต่อ (ฝั่งซ้าย) -->
             <div class="card-info">
                 <span class="label">📞 ข้อมูลการติดต่อ</span>
                 <div class="contact-list">
@@ -435,32 +437,32 @@
                 </div>
             </div>
 
-            <!-- การ์ดทักษะ (การ์ดฝั่งขวา) -->
+            <!-- การ์ดทักษะ (ฝั่งขวา - ใช้ไอคอน FontAwesome ไม่ต้องพึ่งไฟล์รูป) -->
             <div class="card-info">
                 <span class="label">🛠️ ทักษะ</span>
                 <div class="skills-compact-grid">
                     <div class="skill-tag">
-                        <img src="ibis.png" alt="ไอบิสเพนท์ x">
+                        <i class="fa-solid fa-paintbrush" style="color: #ff007f;"></i>
                         <span>ไอบิสเพนท์ x</span>
                     </div>
                     <div class="skill-tag">
-                        <img src="procreate.png" alt="Procreate">
+                        <i class="fa-solid fa-pen-nib" style="color: #7928ca;"></i>
                         <span>Procreate</span>
                     </div>
                     <div class="skill-tag">
-                        <img src="3dsmax.png" alt="3ds Max">
+                        <i class="fa-solid fa-cube" style="color: #0088ff;"></i>
                         <span>3ds Max</span>
                     </div>
                     <div class="skill-tag">
-                        <img src="gopaint.png" alt="GoPaint">
+                        <i class="fa-solid fa-palette" style="color: #ff5e00;"></i>
                         <span>GoPaint</span>
                     </div>
                     <div class="skill-tag">
-                        <img src="canva.png" alt="Canva">
+                        <i class="fa-solid fa-paint-roller" style="color: #00c4cc;"></i>
                         <span>Canva</span>
                     </div>
                     <div class="skill-tag">
-                        <img src="blender.png" alt="Blender">
+                        <i class="fa-solid fa-shapes" style="color: #ea580c;"></i>
                         <span>Blender</span>
                     </div>
                 </div>
