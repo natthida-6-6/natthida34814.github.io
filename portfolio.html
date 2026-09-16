@@ -75,15 +75,22 @@
             background: #fff;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
             border: 3px solid rgba(255, 255, 255, 0.8);
-            aspect-ratio: 4 / 3;
             cursor: pointer;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
         }
 
         .gallery-item:hover {
-            transform: translateY(-10px) scale(1.04) rotate(1deg);
+            transform: translateY(-10px) scale(1.02);
             border-color: #ff007f;
             box-shadow: 0 20px 40px rgba(255, 0, 128, 0.4);
+        }
+
+        .img-container {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            overflow: hidden;
         }
 
         .gallery-item img {
@@ -94,7 +101,18 @@
         }
 
         .gallery-item:hover img {
-            transform: scale(1.1);
+            transform: scale(1.08);
+        }
+
+        .gallery-caption {
+            padding: 15px;
+            text-align: center;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #333;
+            background: #ffffff;
+            border-top: 1px solid #ffe6ed;
+            line-height: 1.4;
         }
 
         .pagination {
@@ -162,16 +180,26 @@
             backdrop-filter: blur(10px);
             justify-content: center;
             align-items: center;
+            flex-direction: column;
             padding: 20px;
         }
 
         .modal-img {
             max-width: 90%;
-            max-height: 85vh;
+            max-height: 75vh;
             border-radius: 20px;
             box-shadow: 0 0 50px rgba(255, 255, 255, 0.3);
             object-fit: contain;
             animation: zoomIn 0.3s ease;
+        }
+
+        .modal-caption {
+            color: #fff;
+            margin-top: 15px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-align: center;
+            max-width: 80%;
         }
 
         .close-modal {
@@ -223,82 +251,226 @@
 
         <!-- หน้า 1 -->
         <div class="gallery-grid active" id="page-1">
-            <div class="gallery-item" onclick="openModal('แก้ๆ.jpg')"><img src="แก้ๆ.jpg" alt="แก้ๆ"></div>
-            <div class="gallery-item" onclick="openModal('บัตร 2.jpg')"><img src="บัตร 2.jpg" alt="บัตร 2"></div>
-            <div class="gallery-item" onclick="openModal('บัตร 4.jpg')"><img src="บัตร 4.jpg" alt="บัตร 4"></div>
-            <div class="gallery-item" onclick="openModal('บัตร 5.jpg')"><img src="บัตร 5.jpg" alt="บัตร 5"></div>
-            <div class="gallery-item" onclick="openModal('บัตร 6.jpg')"><img src="บัตร 6.jpg" alt="บัตร 6"></div>
-            <div class="gallery-item" onclick="openModal('พอด 1.jpg')"><img src="พอด 1.jpg" alt="พอด 1"></div>
+            <div class="gallery-item" onclick="openModal('แก้ๆ.jpg', 'ใบที่ 1: เกียรติบัตรเข้าร่วมกิจกรรม')">
+                <div class="img-container"><img src="แก้ๆ.jpg" alt="แก้ๆ"></div>
+                <div class="gallery-caption">ใบที่ 1: เกียรติบัตรเข้าร่วมกิจกรรม</div>
+            </div>
+            <div class="gallery-item" onclick="openModal('บัตร 2.jpg', 'ใบที่ 2: เกียรติบัตรการแข่งขันทักษะวิชาการ')">
+                <div class="img-container"><img src="บัตร 2.jpg" alt="บัตร 2"></div>
+                <div class="gallery-caption">ใบที่ 2: เกียรติบัตรการแข่งขันทักษะวิชาการ</div>
+            </div>
+            <div class="gallery-item" onclick="openModal('บัตร 4.jpg', 'ใบที่ 3: เกียรติบัตรรางวัลชนะเลิศ')">
+                <div class="img-container"><img src="บัตร 4.jpg" alt="บัตร 4"></div>
+                <div class="gallery-caption">ใบที่ 3: เกียรติบัตรรางวัลชนะเลิศ</div>
+            </div>
+            <div class="gallery-item" onclick="openModal('บัตร 5.jpg', 'ใบที่ 4: เกียรติบัตรการอบรมเชิงปฏิบัติการ')">
+                <div class="img-container"><img src="บัตร 5.jpg" alt="บัตร 5"></div>
+                <div class="gallery-caption">ใบที่ 4: เกียรติบัตรการอบรมเชิงปฏิบัติการ</div>
+            </div>
+            <div class="gallery-item" onclick="openModal('บัตร 6.jpg', 'ใบที่ 5: เกียรติบัตรทดสอบความรู้ดิจิทัล')">
+                <div class="img-container"><img src="บัตร 6.jpg" alt="บัตร 6"></div>
+                <div class="gallery-caption">ใบที่ 5: เกียรติบัตรทดสอบความรู้ดิจิทัล</div>
+            </div>
+            <div class="gallery-item" onclick="openModal('พอด 1.jpg', 'ใบที่ 6: เกียรติบัตรนักเรียนดีเด่น')">
+                <div class="img-container"><img src="พอด 1.jpg" alt="พอด 1"></div>
+                <div class="gallery-caption">ใบที่ 6: เกียรติบัตรนักเรียนดีเด่น</div>
+            </div>
         </div>
 
         <!-- หน้า 2 -->
         <div class="gallery-grid" id="page-2">
-            <div class="gallery-item" onclick="openModal('พอด 2.jpg')"><img src="พอด 2.jpg" alt="พอด 2"></div>
-            <div class="gallery-item" onclick="openModal('พอด 3.jpg')"><img src="พอด 3.jpg" alt="พอด 3"></div>
-            <div class="gallery-item" onclick="openModal('พอด 4.jpg')"><img src="พอด 4.jpg" alt="พอด 4"></div>
-            <div class="gallery-item" onclick="openModal('พอด 5.jpg')"><img src="พอด 5.jpg" alt="พอด 5"></div>
-            <div class="gallery-item" onclick="openModal('พอด 6.jpg')"><img src="พอด 6.jpg" alt="พอด 6"></div>
-            <div class="gallery-item" onclick="openModal('พอด 7.jpg')"><img src="พอด 7.jpg" alt="พอด 7"></div>
+            <div class="gallery-item" onclick="openModal('พอด 2.jpg', 'ใบที่ 7: เกียรติบัตรกิจกรรมจิตอาสา')">
+                <div class="img-container"><img src="พอด 2.jpg" alt="พอด 2"></div>
+                <div class="gallery-caption">ใบที่ 7: เกียรติบัตรกิจกรรมจิตอาสา</div>
+            </div>
+            <div class="gallery-item" onclick="openModal('พอด 3.jpg', 'ใบที่ 8: เกียรติบัตรการแข่งขันวาดภาพดิจิทัล')">
+                <div class="img-container"><img src="พอด 3.jpg" alt="พอด 3"></div>
+                <div class="gallery-caption">ใบที่ 8: เกียรติบัตรการแข่งขันวาดภาพดิจิทัล</div>
+            </div>
+            <div class="gallery-item" onclick="openModal('พอด 4.jpg', 'ใบที่ 9: เกียรติบัตรผ่านการอบรมโปรแกรมมิ่ง')">
+                <div class="img-container"><img src="พอด 4.jpg" alt="พอด 4"></div>
+                <div class="gallery-caption">ใบที่ 9: เกียรติบัตรผ่านการอบรมโปรแกรมมิ่ง</div>
+            </div>
+            <div class="gallery-item" onclick="openModal('พอด 5.jpg', 'ใบที่ 10: เกียรติบัตรสัปดาห์วิทยาศาสตร์')">
+                <div class="img-container"><img src="พอด 5.jpg" alt="พอด 5"></div>
+                <div class="gallery-caption">ใบที่ 10: เกียรติบัตรสัปดาห์วิทยาศาสตร์</div>
+            </div>
+            <div class="gallery-item" onclick="openModal('พอด 6.jpg', 'ใบที่ 11: เกียรติบัตรเข้าร่วมเวิร์กช็อป IT')">
+                <div class="img-container"><img src="พอด 6.jpg" alt="พอด 6"></div>
+                <div class="gallery-caption">ใบที่ 11: เกียรติบัตรเข้าร่วมเวิร์กช็อป IT</div>
+            </div>
+            <div class="gallery-item" onclick="openModal('พอด 7.jpg', 'ใบที่ 12: เกียรติบัตรการประกวดนวัตกรรม')">
+                <div class="img-container"><img src="พอด 7.jpg" alt="พอด 7"></div>
+                <div class="gallery-caption">ใบที่ 12: เกียรติบัตรการประกวดนวัตกรรม</div>
+            </div>
         </div>
 
         <!-- หน้า 3 -->
         <div class="gallery-grid" id="page-3">
-            <div class="gallery-item" onclick="openModal('พอด 8.jpg')"><img src="พอด 8.jpg" alt="พอด 8"></div>
-            <div class="gallery-item" onclick="openModal('พอด 9.jpg')"><img src="พอด 9.jpg" alt="พอด 9"></div>
-            <div class="gallery-item" onclick="openModal('พอด 16.jpg')"><img src="พอด 16.jpg" alt="พอด 16"></div>
-            <div class="gallery-item" onclick="openModal('พอด 17.jpg')"><img src="พอด 17.jpg" alt="พอด 17"></div>
-            <div class="gallery-item" onclick="openModal('พอด 18.jpg')"><img src="พอด 18.jpg" alt="พอด 18"></div>
-            <div class="gallery-item" onclick="openModal('พอด 19.jpg')"><img src="พอด 19.jpg" alt="พอด 19"></div>
+            <div class="gallery-item" onclick="openModal('พอด 8.jpg', 'ใบที่ 13: เกียรติบัตรบำเพ็ญประโยชน์')">
+                <div class="img-container"><img src="พอด 8.jpg" alt="พอด 8"></div>
+                <div class="gallery-caption">ใบที่ 13: เกียรติบัตรบำเพ็ญประโยชน์</div>
+            </div>
+            <div class="gallery-item" onclick="openModal('พอด 9.jpg', 'ใบที่ 14: เกียรติบัตรการแข่งขันทักษะคอมพิวเตอร์')">
+                <div class="img-container"><img src="พอด 9.jpg" alt="พอด 9"></div>
+                <div class="gallery-caption">ใบที่ 14: เกียรติบัตรการแข่งขันทักษะคอมพิวเตอร์</div>
+            </div>
+            <div class="gallery-item" onclick="openModal('พอด 16.jpg', 'ใบที่ 15: เกียรติบัตรผู้มีผลการเรียนดีเยี่ยม')">
+                <div class="img-container"><img src="พอด 16.jpg" alt="พอด 16"></div>
+                <div class="gallery-caption">ใบที่ 15: เกียรติบัตรผู้มีผลการเรียนดีเยี่ยม</div>
+            </div>
+            <div class="gallery-item" onclick="openModal('พอด 17.jpg', 'ใบที่ 16: เกียรติบัตรกิจกรรมเปิดโลกวิชาการ')">
+                <div class="img-container"><img src="พอด 17.jpg" alt="พอด 17"></div>
+                <div class="gallery-caption">ใบที่ 16: เกียรติบัตรกิจกรรมเปิดโลกวิชาการ</div>
+            </div>
+            <div class="gallery-item" onclick="openModal('พอด 18.jpg', 'ใบที่ 17: เกียรติบัตรอบรม Cybersecurity')">
+                <div class="img-container"><img src="พอด 18.jpg" alt="พอด 18"></div>
+                <div class="gallery-caption">ใบที่ 17: เกียรติบัตรอบรม Cybersecurity</div>
+            </div>
+            <div class="gallery-item" onclick="openModal('พอด 19.jpg', 'ใบที่ 18: เกียรติบัตรการประกวดสื่อมัลติมีเดีย')">
+                <div class="img-container"><img src="พอด 19.jpg" alt="พอด 19"></div>
+                <div class="gallery-caption">ใบที่ 18: เกียรติบัตรการประกวดสื่อมัลติมีเดีย</div>
+            </div>
         </div>
 
         <!-- หน้า 4 -->
         <div class="gallery-grid" id="page-4">
-            <div class="gallery-item" onclick="openModal('พอด 20.jpg')"><img src="พอด 20.jpg" alt="พอด 20"></div>
-            <div class="gallery-item" onclick="openModal('เอามาด้วย.jpg')"><img src="เอามาด้วย.jpg" alt="เอามาด้วย"></div>
-            <div class="gallery-item" onclick="openModal('จ้า 1.jpg')"><img src="จ้า 1.jpg" alt="จ้า 1"></div>
-            <div class="gallery-item" onclick="openModal('จ้า 2.jpg')"><img src="จ้า 2.jpg" alt="จ้า 2"></div>
-            <div class="gallery-item" onclick="openModal('จ้า 3.jpg')"><img src="จ้า 3.jpg" alt="จ้า 3"></div>
-            <div class="gallery-item" onclick="openModal('จ้า 4.jpg')"><img src="จ้า 4.jpg" alt="จ้า 4"></div>
+            <div class="gallery-item" onclick="openModal('พอด 20.jpg', 'ใบที่ 19: เกียรติบัตรเข้าร่วมอบรม AI & Data')">
+                <div class="img-container"><img src="พอด 20.jpg" alt="พอด 20"></div>
+                <div class="gallery-caption">ใบที่ 19: เกียรติบัตรเข้าร่วมอบรม AI & Data</div>
+            </div>
+            <div class="gallery-item" onclick="openModal('เอามาด้วย.jpg', 'ใบที่ 20: เกียรติบัตรรางวัลรองชนะเลิศ')">
+                <div class="img-container"><img src="เอามาด้วย.jpg" alt="เอามาด้วย"></div>
+                <div class="gallery-caption">ใบที่ 20: เกียรติบัตรรางวัลรองชนะเลิศ</div>
+            </div>
+            <div class="gallery-item" onclick="openModal('จ้า 1.jpg', 'ภาพกิจกรรม: เข้าร่วมเวิร์กช็อปการพัฒนาเกม')">
+                <div class="img-container"><img src="จ้า 1.jpg" alt="จ้า 1"></div>
+                <div class="gallery-caption">ภาพกิจกรรม: เข้าร่วมเวิร์กช็อปการพัฒนาเกม</div>
+            </div>
+            <div class="gallery-item" onclick="openModal('จ้า 2.jpg', 'ภาพกิจกรรม: การนําเสนอผลงานหน้าชั้นเรียน')">
+                <div class="img-container"><img src="จ้า 2.jpg" alt="จ้า 2"></div>
+                <div class="gallery-caption">ภาพกิจกรรม: การนําเสนอผลงานหน้าชั้นเรียน</div>
+            </div>
+            <div class="gallery-item" onclick="openModal('จ้า 3.jpg', 'ภาพกิจกรรม: เข้าร่วมงานสัปดาห์วิชาการ')">
+                <div class="img-container"><img src="จ้า 3.jpg" alt="จ้า 3"></div>
+                <div class="gallery-caption">ภาพกิจกรรม: เข้าร่วมงานสัปดาห์วิชาการ</div>
+            </div>
+            <div class="gallery-item" onclick="openModal('จ้า 4.jpg', 'ภาพกิจกรรม: การทำงานกลุ่มออกแบบ 3D โมเดล')">
+                <div class="img-container"><img src="จ้า 4.jpg" alt="จ้า 4"></div>
+                <div class="gallery-caption">ภาพกิจกรรม: การทำงานกลุ่มออกแบบ 3D โมเดล</div>
+            </div>
         </div>
 
         <!-- หน้า 5 -->
         <div class="gallery-grid" id="page-5">
-            <div class="gallery-item" onclick="openModal('จ้า 5.jpg')"><img src="จ้า 5.jpg" alt="จ้า 5"></div>
-            <div class="gallery-item" onclick="openModal('จ้า 6.jpg')"><img src="จ้า 6.jpg" alt="จ้า 6"></div>
-            <div class="gallery-item" onclick="openModal('จ้า 7.jpg')"><img src="จ้า 7.jpg" alt="จ้า 7"></div>
-            <div class="gallery-item" onclick="openModal('จ้า 8.jpg')"><img src="จ้า 8.jpg" alt="จ้า 8"></div>
-            <div class="gallery-item" onclick="openModal('จ้า 9.jpg')"><img src="จ้า 9.jpg" alt="จ้า 9"></div>
-            <div class="gallery-item" onclick="openModal('จ้า 10.jpg')"><img src="จ้า 10.jpg" alt="จ้า 10"></div>
+            <div class="gallery-item" onclick="openModal('จ้า 5.jpg', 'ภาพกิจกรรม: เข้าร่วมค่ายคุณธรรมและจริยธรรม')">
+                <div class="img-container"><img src="จ้า 5.jpg" alt="จ้า 5"></div>
+                <div class="gallery-caption">ภาพกิจกรรม: เข้าร่วมค่ายคุณธรรมและจริยธรรม</div>
+            </div>
+            <div class="gallery-item" onclick="openModal('จ้า 6.jpg', 'ภาพกิจกรรม: การแข่งขันวาดภาพในวันสำคัญ')">
+                <div class="img-container"><img src="จ้า 6.jpg" alt="จ้า 6"></div>
+                <div class="gallery-caption">ภาพกิจกรรม: การแข่งขันวาดภาพในวันสำคัญ</div>
+            </div>
+            <div class="gallery-item" onclick="openModal('จ้า 7.jpg', 'ภาพกิจกรรม: จิตอาสาพัฒนาสิ่งแวดล้อมโรงเรียน')">
+                <div class="img-container"><img src="จ้า 7.jpg" alt="จ้า 7"></div>
+                <div class="gallery-caption">ภาพกิจกรรม: จิตอาสาพัฒนาสิ่งแวดล้อมโรงเรียน</div>
+            </div>
+            <div class="gallery-item" onclick="openModal('จ้า 8.jpg', 'ภาพกิจกรรม: เข้าร่วมฟังบรรยายพิเศษเทคโนโลยี')">
+                <div class="img-container"><img src="จ้า 8.jpg" alt="จ้า 8"></div>
+                <div class="gallery-caption">ภาพกิจกรรม: เข้าร่วมฟังบรรยายพิเศษเทคโนโลยี</div>
+            </div>
+            <div class="gallery-item" onclick="openModal('จ้า 9.jpg', 'ภาพกิจกรรม: กิจกรรมกีฬาสีภายในโรงเรียน')">
+                <div class="img-container"><img src="จ้า 9.jpg" alt="จ้า 9"></div>
+                <div class="gallery-caption">ภาพกิจกรรม: กิจกรรมกีฬาสีภายในโรงเรียน</div>
+            </div>
+            <div class="gallery-item" onclick="openModal('จ้า 10.jpg', 'ภาพกิจกรรม: อบรมการสร้างกราฟิกเพื่อการสื่อสาร')">
+                <div class="img-container"><img src="จ้า 10.jpg" alt="จ้า 10"></div>
+                <div class="gallery-caption">ภาพกิจกรรม: อบรมการสร้างกราฟิกเพื่อการสื่อสาร</div>
+            </div>
         </div>
 
         <!-- หน้า 6 -->
         <div class="gallery-grid" id="page-6">
-            <div class="gallery-item" onclick="openModal('จ้า 11.jpg')"><img src="จ้า 11.jpg" alt="จ้า 11"></div>
-            <div class="gallery-item" onclick="openModal('จ้า 12.jpg')"><img src="จ้า 12.jpg" alt="จ้า 12"></div>
-            <div class="gallery-item" onclick="openModal('จ้า 13.jpg')"><img src="จ้า 13.jpg" alt="จ้า 13"></div>
-            <div class="gallery-item" onclick="openModal('จ้า 14.jpg')"><img src="จ้า 14.jpg" alt="จ้า 14"></div>
-            <div class="gallery-item" onclick="openModal('กิจ 1.jpg')"><img src="กิจ 1.jpg" alt="กิจ 1"></div>
-            <div class="gallery-item" onclick="openModal('กิจ 2.jpg')"><img src="กิจ 2.jpg" alt="กิจ 2"></div>
+            <div class="gallery-item" onclick="openModal('จ้า 11.jpg', 'ภาพกิจกรรม: ร่วมงานวันวิทยาศาสตร์และเทคโนโลยี')">
+                <div class="img-container"><img src="จ้า 11.jpg" alt="จ้า 11"></div>
+                <div class="gallery-caption">ภาพกิจกรรม: ร่วมงานวันวิทยาศาสตร์และเทคโนโลยี</div>
+            </div>
+            <div class="gallery-item" onclick="openModal('จ้า 12.jpg', 'ภาพกิจกรรม: การเข้าชมพิพิธภัณฑ์เรียนรู้')">
+                <div class="img-container"><img src="จ้า 12.jpg" alt="จ้า 12"></div>
+                <div class="gallery-caption">ภาพกิจกรรม: การเข้าชมพิพิธภัณฑ์เรียนรู้</div>
+            </div>
+            <div class="gallery-item" onclick="openModal('จ้า 13.jpg', 'ภาพกิจกรรม: การจัดบอร์ดนิทรรศการความรู้')">
+                <div class="img-container"><img src="จ้า 13.jpg" alt="จ้า 13"></div>
+                <div class="gallery-caption">ภาพกิจกรรม: การจัดบอร์ดนิทรรศการความรู้</div>
+            </div>
+            <div class="gallery-item" onclick="openModal('จ้า 14.jpg', 'ภาพกิจกรรม: เข้าร่วมพิธีไหว้ครูประเพณีโรงเรียน')">
+                <div class="img-container"><img src="จ้า 14.jpg" alt="จ้า 14"></div>
+                <div class="gallery-caption">ภาพกิจกรรม: เข้าร่วมพิธีไหว้ครูประเพณีโรงเรียน</div>
+            </div>
+            <div class="gallery-item" onclick="openModal('กิจ 1.jpg', 'ภาพกิจกรรม: บำเพ็ญประโยชน์ร่วมกับชุมชน')">
+                <div class="img-container"><img src="กิจ 1.jpg" alt="กิจ 1"></div>
+                <div class="gallery-caption">ภาพกิจกรรม: บำเพ็ญประโยชน์ร่วมกับชุมชน</div>
+            </div>
+            <div class="gallery-item" onclick="openModal('กิจ 2.jpg', 'ภาพกิจกรรม: กิจกรรมแนะแนวการศึกษาต่อ')">
+                <div class="img-container"><img src="กิจ 2.jpg" alt="กิจ 2"></div>
+                <div class="gallery-caption">ภาพกิจกรรม: กิจกรรมแนะแนวการศึกษาต่อ</div>
+            </div>
         </div>
 
         <!-- หน้า 7 -->
         <div class="gallery-grid" id="page-7">
-            <div class="gallery-item" onclick="openModal('อัน 1.jpg')"><img src="อัน 1.jpg" alt="อัน 1"></div>
-            <div class="gallery-item" onclick="openModal('อัน 2.jpg')"><img src="อัน 2.jpg" alt="อัน 2"></div>
-            <div class="gallery-item" onclick="openModal('อัน 3.jpg')"><img src="อัน 3.jpg" alt="อัน 3"></div>
-            <div class="gallery-item" onclick="openModal('อัน 4.jpg')"><img src="อัน 4.jpg" alt="อัน 4"></div>
-            <div class="gallery-item" onclick="openModal('อัน 5.jpg')"><img src="อัน 5.jpg" alt="อัน 5"></div>
-            <div class="gallery-item" onclick="openModal('อัน 6.jpg')"><img src="อัน 6.jpg" alt="อัน 6"></div>
+            <div class="gallery-item" onclick="openModal('อัน 1.jpg', 'ภาพผลงาน: การออกแบบคาแรคเตอร์ดีไซน์ 1')">
+                <div class="img-container"><img src="อัน 1.jpg" alt="อัน 1"></div>
+                <div class="gallery-caption">ภาพผลงาน: การออกแบบคาแรคเตอร์ดีไซน์ 1</div>
+            </div>
+            <div class="gallery-item" onclick="openModal('อัน 2.jpg', 'ภาพผลงาน: การออกแบบคาแรคเตอร์ดีไซน์ 2')">
+                <div class="img-container"><img src="อัน 2.jpg" alt="อัน 2"></div>
+                <div class="gallery-caption">ภาพผลงาน: การออกแบบคาแรคเตอร์ดีไซน์ 2</div>
+            </div>
+            <div class="gallery-item" onclick="openModal('อัน 3.jpg', 'ภาพผลงาน: ภาพวาดประกอบสื่อดิจิทัล')">
+                <div class="img-container"><img src="อัน 3.jpg" alt="อัน 3"></div>
+                <div class="gallery-caption">ภาพผลงาน: ภาพวาดประกอบสื่อดิจิทัล</div>
+            </div>
+            <div class="gallery-item" onclick="openModal('อัน 4.jpg', 'ภาพผลงาน: ผลงานออกแบบฉากและบรรยากาศ')">
+                <div class="img-container"><img src="อัน 4.jpg" alt="อัน 4"></div>
+                <div class="gallery-caption">ภาพผลงาน: ผลงานออกแบบฉากและบรรยากาศ</div>
+            </div>
+            <div class="gallery-item" onclick="openModal('อัน 5.jpg', 'ภาพผลงาน: โมเดล 3 มิติเพื่อการใช้งานในเกม')">
+                <div class="img-container"><img src="อัน 5.jpg" alt="อัน 5"></div>
+                <div class="gallery-caption">ภาพผลงาน: โมเดล 3 มิติเพื่อการใช้งานในเกม</div>
+            </div>
+            <div class="gallery-item" onclick="openModal('อัน 6.jpg', 'ภาพผลงาน: ภาพโปสเตอร์และสื่อประชาสัมพันธ์')">
+                <div class="img-container"><img src="อัน 6.jpg" alt="อัน 6"></div>
+                <div class="gallery-caption">ภาพผลงาน: ภาพโปสเตอร์และสื่อประชาสัมพันธ์</div>
+            </div>
         </div>
 
         <!-- หน้า 8 (เพิ่มใหม่) -->
         <div class="gallery-grid" id="page-8">
-            <div class="gallery-item" onclick="openModal('รูป 1.jpg')"><img src="รูป 1.jpg" alt="รูป 1"></div>
-            <div class="gallery-item" onclick="openModal('รูป 2.jpg')"><img src="รูป 2.jpg" alt="รูป 2"></div>
-            <div class="gallery-item" onclick="openModal('รูป 3.jpg')"><img src="รูป 3.jpg" alt="รูป 3"></div>
-            <div class="gallery-item" onclick="openModal('รูป 4.jpg')"><img src="รูป 4.jpg" alt="รูป 4"></div>
-            <div class="gallery-item" onclick="openModal('รูป 5.jpg')"><img src="รูป 5.jpg" alt="รูป 5"></div>
-            <div class="gallery-item" onclick="openModal('รูป 6.jpg')"><img src="รูป 6.jpg" alt="รูป 6"></div>
+            <div class="gallery-item" onclick="openModal('รูป 1.jpg', 'ภาพผลงานวาดภาพดิจิทัลอาร์ต 1')">
+                <div class="img-container"><img src="รูป 1.jpg" alt="รูป 1"></div>
+                <div class="gallery-caption">ภาพผลงานวาดภาพดิจิทัลอาร์ต 1</div>
+            </div>
+            <div class="gallery-item" onclick="openModal('รูป 2.jpg', 'ภาพผลงานวาดภาพดิจิทัลอาร์ต 2')">
+                <div class="img-container"><img src="รูป 2.jpg" alt="รูป 2"></div>
+                <div class="gallery-caption">ภาพผลงานวาดภาพดิจิทัลอาร์ต 2</div>
+            </div>
+            <div class="gallery-item" onclick="openModal('รูป 3.jpg', 'ภาพผลงานวาดภาพดิจิทัลอาร์ต 3')">
+                <div class="img-container"><img src="รูป 3.jpg" alt="รูป 3"></div>
+                <div class="gallery-caption">ภาพผลงานวาดภาพดิจิทัลอาร์ต 3</div>
+            </div>
+            <div class="gallery-item" onclick="openModal('รูป 4.jpg', 'ภาพผลงานวาดภาพดิจิทัลอาร์ต 4')">
+                <div class="img-container"><img src="รูป 4.jpg" alt="รูป 4"></div>
+                <div class="gallery-caption">ภาพผลงานวาดภาพดิจิทัลอาร์ต 4</div>
+            </div>
+            <div class="gallery-item" onclick="openModal('รูป 5.jpg', 'ภาพผลงานวาดภาพดิจิทัลอาร์ต 5')">
+                <div class="img-container"><img src="รูป 5.jpg" alt="รูป 5"></div>
+                <div class="gallery-caption">ภาพผลงานวาดภาพดิจิทัลอาร์ต 5</div>
+            </div>
+            <div class="gallery-item" onclick="openModal('รูป 6.jpg', 'ภาพผลงานวาดภาพดิจิทัลอาร์ต 6')">
+                <div class="img-container"><img src="รูป 6.jpg" alt="รูป 6"></div>
+                <div class="gallery-caption">ภาพผลงานวาดภาพดิจิทัลอาร์ต 6</div>
+            </div>
         </div>
 
         <!-- ปุ่มสลับหน้า -->
@@ -322,6 +494,7 @@
     <div id="imageModal" class="modal" onclick="closeModal()">
         <span class="close-modal">&times;</span>
         <img class="modal-img" id="imgFull">
+        <div class="modal-caption" id="captionFull"></div>
     </div>
 
     <script>
@@ -337,9 +510,10 @@
             evt.target.classList.add('active');
         }
 
-        function openModal(src) {
+        function openModal(src, caption) {
             document.getElementById('imageModal').style.display = 'flex';
             document.getElementById('imgFull').src = src;
+            document.getElementById('captionFull').innerText = caption;
         }
 
         function closeModal() {
