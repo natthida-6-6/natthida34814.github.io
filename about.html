@@ -97,8 +97,6 @@
 
         .card-info.full-width {
             grid-column: span 2;
-            background: linear-gradient(135deg, #ffe6ed 0%, #ffffff 100%);
-            border-color: #ff85a2;
         }
 
         .label {
@@ -119,36 +117,52 @@
         }
 
         /* ประวัติการศึกษา */
-        .edu-list {
-            display: flex;
-            flex-direction: column;
+        .edu-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
             gap: 15px;
         }
 
-        .edu-item {
+        .edu-box {
             background: #fff0f3;
-            border: 1px solid #ffccd5;
-            border-radius: 15px;
-            padding: 12px 18px;
+            border: 2px solid #ffccd5;
+            border-radius: 20px;
+            padding: 18px 22px;
+            transition: all 0.3s ease;
         }
 
-        .edu-level {
-            font-size: 1.15rem;
+        .edu-box:hover {
+            border-color: #ff007f;
+            background: #ffffff;
+            box-shadow: 0 5px 15px rgba(255, 0, 128, 0.15);
+        }
+
+        .edu-level-title {
+            font-size: 1.2rem;
             font-weight: 700;
             color: #ff007f;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        .edu-school {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #333;
-        }
-
-        .edu-gpa {
-            font-size: 1.1rem;
+        .edu-school-name {
+            font-size: 1.25rem;
             font-weight: 700;
-            color: #7928ca;
-            margin-top: 2px;
+            color: #2c2c2c;
+            margin-bottom: 4px;
+        }
+
+        .edu-gpa-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff007f, #7928ca);
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 1.05rem;
+            padding: 4px 14px;
+            border-radius: 20px;
+            margin-top: 6px;
         }
 
         /* ข้อมูลการติดต่อ */
@@ -276,6 +290,7 @@
         @media (max-width: 800px) {
             .grid-info { grid-template-columns: 1fr; }
             .card-info.full-width { grid-column: span 1; }
+            .edu-grid { grid-template-columns: 1fr; }
             .skills-compact-grid { grid-template-columns: 1fr; }
             .full-wrapper { padding: 35px 20px; }
             .page-title { font-size: 2.5rem; }
@@ -307,24 +322,19 @@
                 <p class="value">ไทย / พุทธ</p>
             </div>
 
-            <!-- ประวัติการศึกษา (เพิ่มใหม่ตามรูปภาพ) -->
+            <!-- ประวัติการศึกษา (ปรับรูปสไตล์การ์ดโทนเดียวกับเว็บ) -->
             <div class="card-info full-width">
                 <span class="label">🎓 ประวัติการศึกษา</span>
-                <div class="edu-list">
-                    <div class="edu-item">
-                        <span class="edu-level">ประถมศึกษา</span>
-                        <p class="edu-school">โรงเรียนสมคิดจิตต์วิทยา</p>
-                        <p class="edu-gpa">GPA : 3.80</p>
+                <div class="edu-grid">
+                    <div class="edu-box">
+                        <div class="edu-level-title"><i class="fa-solid fa-graduation-cap"></i> ประถมศึกษา :</div>
+                        <div class="edu-school-name">โรงเรียนสมคิดจิตต์วิทยา</div>
+                        <div class="edu-gpa-badge">GPA : 3.80</div>
                     </div>
-                    <div class="edu-item">
-                        <span class="edu-level">มัธยมศึกษาตอนต้น</span>
-                        <p class="edu-school">โรงเรียนบ้านบึง "อุตสาหกรรมนุเคราะห์"</p>
-                        <p class="edu-gpa">GPA : 3.78</p>
-                    </div>
-                    <div class="edu-item">
-                        <span class="edu-level">มัธยมศึกษาตอนปลาย</span>
-                        <p class="edu-school">โรงเรียนบ้านบึง "อุตสาหกรรมนุเคราะห์"</p>
-                        <p style="color: #666; font-size: 1.05rem; font-weight: 600;">สาขาวิทยาการคอมพิวเตอร์และวิศวกรรมศาสตร์</p>
+                    <div class="edu-box">
+                        <div class="edu-level-title"><i class="fa-solid fa-school"></i> มัธยมศึกษาตอนต้น :</div>
+                        <div class="edu-school-name">โรงเรียนบ้านบึง "อุตสาหกรรมนุเคราะห์"</div>
+                        <div class="edu-gpa-badge">GPA : 3.78</div>
                     </div>
                 </div>
             </div>
