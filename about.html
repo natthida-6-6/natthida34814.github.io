@@ -118,6 +118,39 @@
             line-height: 1.5;
         }
 
+        /* ประวัติการศึกษา */
+        .edu-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .edu-item {
+            background: #fff0f3;
+            border: 1px solid #ffccd5;
+            border-radius: 15px;
+            padding: 12px 18px;
+        }
+
+        .edu-level {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #ff007f;
+        }
+
+        .edu-school {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .edu-gpa {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #7928ca;
+            margin-top: 2px;
+        }
+
         /* ข้อมูลการติดต่อ */
         .contact-list {
             display: flex;
@@ -273,16 +306,35 @@
                 <span class="label">🇹🇭 สัญชาติ / ศาสนา</span>
                 <p class="value">ไทย / พุทธ</p>
             </div>
-            <div class="card-info">
-                <span class="label">🏫 โรงเรียน / สายการเรียน</span>
-                <p class="value">โรงเรียนบ้านบึง "อุตสาหกรรมนุเคราะห์"<br><small style="color: #666; font-size: 1.05rem;">สาขาวิทยาการคอมพิวเตอร์และวิศวกรรมศาสตร์</small></p>
+
+            <!-- ประวัติการศึกษา (เพิ่มใหม่ตามรูปภาพ) -->
+            <div class="card-info full-width">
+                <span class="label">🎓 ประวัติการศึกษา</span>
+                <div class="edu-list">
+                    <div class="edu-item">
+                        <span class="edu-level">ประถมศึกษา</span>
+                        <p class="edu-school">โรงเรียนสมคิดจิตต์วิทยา</p>
+                        <p class="edu-gpa">GPA : 3.80</p>
+                    </div>
+                    <div class="edu-item">
+                        <span class="edu-level">มัธยมศึกษาตอนต้น</span>
+                        <p class="edu-school">โรงเรียนบ้านบึง "อุตสาหกรรมนุเคราะห์"</p>
+                        <p class="edu-gpa">GPA : 3.78</p>
+                    </div>
+                    <div class="edu-item">
+                        <span class="edu-level">มัธยมศึกษาตอนปลาย</span>
+                        <p class="edu-school">โรงเรียนบ้านบึง "อุตสาหกรรมนุเคราะห์"</p>
+                        <p style="color: #666; font-size: 1.05rem; font-weight: 600;">สาขาวิทยาการคอมพิวเตอร์และวิศวกรรมศาสตร์</p>
+                    </div>
+                </div>
             </div>
+
             <div class="card-info">
                 <span class="label">🎨 งานอดิเรก</span>
                 <p class="value">ฟังเพลง, วาดรูป, เล่นเกม</p>
             </div>
 
-            <!-- การ์ดข้อมูลการติดต่อ (ฝั่งซ้าย) -->
+            <!-- ข้อมูลการติดต่อ -->
             <div class="card-info">
                 <span class="label">📞 ข้อมูลการติดต่อ</span>
                 <div class="contact-list">
@@ -293,8 +345,8 @@
                 </div>
             </div>
 
-            <!-- การ์ดทักษะ (ฝั่งขวา) -->
-            <div class="card-info">
+            <!-- ทักษะ -->
+            <div class="card-info full-width">
                 <span class="label">🛠️ ทักษะ</span>
                 <div class="skills-compact-grid">
                     <div class="skill-tag">
